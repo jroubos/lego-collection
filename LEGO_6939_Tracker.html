@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 6939 — Saucer Centurion</title>
+</head>
+<body>
+<script>
+// ── SET DATA — edit parts here if needed ──────────────────────────────────
+const SET_DATA = {
+  "setId": "6939",
+  "setName": "Saucer Centurion",
+  "theme": "Space",
+  "year": 1994,
+  "storageKey": "6939tracker",
+  "parts": [
+    {
+      "row": 0,
+      "partNo": "sp039",
+      "colorId": "",
+      "colorName": "\u2014",
+      "desc": "Spyrius MinifigureMINIFIG",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 1,
+      "partNo": "sp041",
+      "colorId": "",
+      "colorName": "\u2014",
+      "desc": "Spyrius Droid (Major Kartofski)MINIFIG",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 2,
+      "partNo": "6140",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Bar 1 x 6 with Hollow Studs",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 3,
+      "partNo": "3956",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Bracket 2 x 2 - 2 x 2 with 2 Holes",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 4,
+      "partNo": "4732",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Bracket 8 x 2 x 1 1/3",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 5,
+      "partNo": "3004",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 2",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 6,
+      "partNo": "6111",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 10",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 7,
+      "partNo": "3941",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick Round 2 x 2 with Axle Hole",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 8,
+      "partNo": "3942c",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Cone 2 x 2 x 2 - Open Stud",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 9,
+      "partNo": "2351",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Crane Arm Center (Technic Liftarm 1 x 16)",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 10,
+      "partNo": "3475b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Engine Smooth Small 1 x 2 with Axle Holders",
+      "needed": 8,
+      "isMinifig": false
+    },
+    {
+      "row": 11,
+      "partNo": "2923",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Bar 2.5L with 2 and 3 Fingers on Ends",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 12,
+      "partNo": "2433",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Bar with 3 Fingers and End Stud (Control Lever)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 13,
+      "partNo": "4276b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Plate 1 x 2 with 2 Fingers on End - Hollow Studs",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 14,
+      "partNo": "2452",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Plate 1 x 2 with 3 Fingers on Side",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 15,
+      "partNo": "2516",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Minifigure Utensil Chainsaw Body with Handles and Studs",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 16,
+      "partNo": "3023",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 2",
+      "needed": 12,
+      "isMinifig": false
+    },
+    {
+      "row": 17,
+      "partNo": "3710",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 18,
+      "partNo": "3666",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 6",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 19,
+      "partNo": "3022",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2",
+      "needed": 7,
+      "isMinifig": false
+    },
+    {
+      "row": 20,
+      "partNo": "3021",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 3",
+      "needed": 6,
+      "isMinifig": false
+    },
+    {
+      "row": 21,
+      "partNo": "3020",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 22,
+      "partNo": "3795",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 6",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 23,
+      "partNo": "3034",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 8",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 24,
+      "partNo": "4081b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 1 with Light Attachment - Thick Ring",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 25,
+      "partNo": "6019",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 1 with U Clip (Horizontal Grip)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 26,
+      "partNo": "3794a",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 2 with 1 Stud without Groove (Jumper)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 27,
+      "partNo": "4623a",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 2 with Bar Arm Up (Horizontal Arm 6mm)",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 28,
+      "partNo": "2540",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 2 with Bar Handle on Side - Free Ends",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 29,
+      "partNo": "4596",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 2 with Long Stud Holder (Space Wing)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 30,
+      "partNo": "4600",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 2 x 2 with Wheels Holder",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 31,
+      "partNo": "4032",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Round 2 x 2 with Axle Hole",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 32,
+      "partNo": "3039",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope 45 2 x 2",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 33,
+      "partNo": "3039px2",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope 45 2 x 2 with Horizon Screen Pattern",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 34,
+      "partNo": "3660",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope Inverted 45 2 x 2 with Flat Bottom Pin",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 35,
+      "partNo": "4519",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle 3L",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 36,
+      "partNo": "3700",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Brick 1 x 2 with Hole",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 37,
+      "partNo": "3069",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tile 1 x 2",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 38,
+      "partNo": "3069p21",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tile 1 x 2 with Yellow Arrow Short Pattern",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 39,
+      "partNo": "2431",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tile 1 x 4",
+      "needed": 5,
+      "isMinifig": false
+    },
+    {
+      "row": 40,
+      "partNo": "4162",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tile 1 x 8",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 41,
+      "partNo": "3068p51",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tile 2 x 2 with Spyrius Blue Screen Pattern",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 42,
+      "partNo": "2555",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tile Modified 1 x 1 with Clip",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 43,
+      "partNo": "2419",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 3 x 6 Cut Corners",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 44,
+      "partNo": "2401",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 10 x 10 with 4 x 4 Cutout and Cut Corner",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 45,
+      "partNo": "3673",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Pin without Friction Ridges",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 46,
+      "partNo": "4624c02",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Wheel 8mm with Black Tire 15mm Offset Tread Small",
+      "needed": 8,
+      "isMinifig": false
+    },
+    {
+      "row": 47,
+      "partNo": "3008",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick 1 x 8",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 48,
+      "partNo": "6061",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick Modified 2 x 4 x 2 with Holes on Sides",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 49,
+      "partNo": "3941",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick Round 2 x 2 with Axle Hole",
+      "needed": 5,
+      "isMinifig": false
+    },
+    {
+      "row": 50,
+      "partNo": "3942c",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Cone 2 x 2 x 2 - Open Stud",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 51,
+      "partNo": "2350b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Crane Arm Outside Wide with End Notch",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 52,
+      "partNo": "4276b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Hinge Plate 1 x 2 with 2 Fingers on End - Hollow Studs",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 53,
+      "partNo": "4315",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Hinge Plate 1 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 54,
+      "partNo": "3023",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 2",
+      "needed": 9,
+      "isMinifig": false
+    },
+    {
+      "row": 55,
+      "partNo": "3710",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 56,
+      "partNo": "3795",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 6",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 57,
+      "partNo": "3029",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 4 x 12",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 58,
+      "partNo": "3839b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate Modified 1 x 2 with Bar Handles - Flat Ends",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 59,
+      "partNo": "3297",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Slope 33 3 x 4",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 60,
+      "partNo": "2340",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Tail 4 x 1 x 3",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 61,
+      "partNo": "3479",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Tail 4 x 2 x 2",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 62,
+      "partNo": "2412b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Tile Modified 1 x 2 Grille with Bottom Groove",
+      "needed": 10,
+      "isMinifig": false
+    },
+    {
+      "row": 63,
+      "partNo": "2401",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Wedge Plate 10 x 10 with 4 x 4 Cutout and Cut Corner",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 64,
+      "partNo": "2569",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Antenna Whip 8H",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 65,
+      "partNo": "4589",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Cone 1 x 1",
+      "needed": 6,
+      "isMinifig": false
+    },
+    {
+      "row": 66,
+      "partNo": "4740",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Dish 2 x 2 Inverted (Radar)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 67,
+      "partNo": "4073",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Plate Round 1 x 1",
+      "needed": 6,
+      "isMinifig": false
+    },
+    {
+      "row": 68,
+      "partNo": "2507",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Windscreen 10 x 4 x 2 1/3 Canopy",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 69,
+      "partNo": "4740",
+      "colorId": "16",
+      "colorName": "Trans-Neon Green",
+      "desc": "Dish 2 x 2 Inverted (Radar)",
+      "needed": 2,
+      "isMinifig": false
+    }
+  ],
+  "themeColor": "#0D47A1"
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>

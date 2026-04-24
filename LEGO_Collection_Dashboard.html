@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My LEGO Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2d3250;
+  --accent:#FFD700;--accent2:#FF6B35;--text:#e8eaf6;--text2:#8892b0;
+  --green:#64ffda;--red:#ff5370;--r:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0f1117 0%,#1a1d27 50%,#0f1117 100%);border-bottom:1px solid var(--border);padding:34px 40px 26px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,215,0,0.06) 0%,transparent 70%);pointer-events:none;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:50px;letter-spacing:4px;background:linear-gradient(90deg,#FFD700,#FF6B35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:3px;}
+.hero-sub{color:var(--text2);font-size:12px;letter-spacing:1px;margin-bottom:22px;}
+.stats-row{display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:11px 18px;min-width:105px;position:relative;overflow:hidden;}
+.stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.stat-card .big{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--accent);line-height:1;}
+.stat-card .lbl{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px;margin-top:2px;}
+
+/* CONTROLS */
+.controls-bar{padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;gap:6px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:100;}
+.sw{position:relative;flex:1;min-width:160px;max-width:260px;}
+.sw input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 11px 7px 30px;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;}
+.sw input:focus{border-color:var(--accent);}
+.si{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:12px;}
+select{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 11px;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;}
+select:focus{border-color:var(--accent);}
+.pill{border:1px solid var(--border);background:transparent;color:var(--text2);border-radius:20px;padding:4px 12px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:700;transition:all 0.2s;}
+.pill.active{background:var(--accent);color:#000;border-color:var(--accent);}
+.pill:hover:not(.active){border-color:var(--accent);color:var(--accent);}
+
+/* VIEW TOGGLE — 3 options now */
+.vt{display:flex;gap:3px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:3px;}
+.vtb{border:none;background:transparent;color:var(--text2);border-radius:6px;padding:5px 10px;font-size:13px;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-size:12px;}
+.vtb.active{background:var(--accent);color:#000;font-weight:700;}
+.rc{margin-left:auto;font-size:11px;color:var(--text2);white-space:nowrap;}
+
+/* MAIN CONTENT AREA */
+.content-wrap{padding:22px 40px 100px;}
+
+/* ── GRID VIEW ── */
+.sets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+.set-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;position:relative;}
+.set-card:hover{transform:translateY(-3px);border-color:#3d4270;box-shadow:0 8px 32px rgba(0,0,0,0.5);}
+a.set-card:hover{border-color:rgba(255,215,0,0.4);box-shadow:0 8px 32px rgba(255,215,0,0.15);}
+.set-card.hidden{display:none;}
+.set-img-wrap{width:100%;height:148px;background:#111520;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.set-img-wrap img{width:100%;height:100%;object-fit:contain;padding:8px;transition:transform 0.3s;}
+.set-card:hover .set-img-wrap img{transform:scale(1.06);}
+.set-img-placeholder{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--border);letter-spacing:2px;display:none;}
+.set-img-wrap.no-img .set-img-placeholder{display:block;}
+.era-overlay{position:absolute;top:7px;left:7px;}
+.era-badge{padding:2px 7px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:0.5px;}
+.era-modern{background:rgba(100,255,218,0.2);color:#64ffda;border:1px solid rgba(100,255,218,0.3);}
+.era-vintage{background:rgba(255,107,53,0.2);color:#FF6B35;border:1px solid rgba(255,107,53,0.3);}
+.era-y2k{background:rgba(255,215,0,0.2);color:#FFD700;border:1px solid rgba(255,215,0,0.3);}
+.del-btn{position:absolute;top:7px;right:7px;background:rgba(255,83,112,0.15);border:1px solid rgba(255,83,112,0.3);color:#ff5370;border-radius:50%;width:22px;height:22px;font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:all 0.2s;z-index:10;}
+.set-card:hover .del-btn{display:flex;}
+.del-btn:hover{background:rgba(255,83,112,0.4);border-color:#ff5370;}
+.set-body{padding:10px 12px;display:flex;flex-direction:column;gap:5px;flex:1;}
+.set-num{font-size:10px;color:var(--text2);letter-spacing:0.5px;font-weight:600;}
+.set-name{font-size:13px;font-weight:700;color:var(--text);line-height:1.3;}
+.set-meta{display:flex;gap:5px;flex-wrap:wrap;}
+.theme-tag{padding:2px 7px;border-radius:20px;font-size:9px;font-weight:700;letter-spacing:0.5px;}
+.set-stats{display:flex;gap:12px;border-top:1px solid var(--border);padding-top:7px;margin-top:2px;}
+.sstat{display:flex;align-items:baseline;gap:3px;}
+.sstat-val{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--text);line-height:1;}
+.sstat-lbl{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;}
+.tracker-btn{display:block;text-align:center;background:linear-gradient(90deg,rgba(255,215,0,0.12),rgba(255,107,53,0.12));border:1px solid rgba(255,215,0,0.25);color:var(--accent);text-decoration:none;border-radius:6px;padding:6px;font-size:10px;font-weight:700;transition:all 0.2s;margin-top:2px;}
+.tracker-btn:hover{background:linear-gradient(90deg,rgba(255,215,0,0.22),rgba(255,107,53,0.22));border-color:var(--accent);}
+.no-tracker{display:block;text-align:center;color:var(--text2);font-size:10px;padding:6px;border:1px dashed #2d3250;border-radius:6px;margin-top:2px;}
+.progress-wrap{margin-top:6px;}
+.progress-bar-bg{background:var(--surface2);border-radius:20px;height:6px;overflow:hidden;margin-bottom:4px;}
+.progress-bar-fill{height:100%;border-radius:20px;transition:width 0.4s ease;background:linear-gradient(90deg,#64ffda,#00B4D8);}
+.progress-bar-fill.complete{background:linear-gradient(90deg,#64ffda,#00e676);}
+.progress-bar-fill.low{background:linear-gradient(90deg,#ff5370,#FF6B35);}
+.progress-label{display:flex;justify-content:space-between;font-size:9px;color:var(--text2);letter-spacing:0.3px;}
+.progress-label .pct{font-weight:700;color:var(--text);}
+
+/* ── LIST VIEW ── */
+.sets-list{display:flex;flex-direction:column;gap:6px;}
+.list-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;gap:0;overflow:hidden;transition:border-color 0.2s;position:relative;}
+.list-card:hover{border-color:#3d4270;}
+.list-card.hidden{display:none;}
+.list-img{width:72px;height:54px;background:#111520;flex-shrink:0;border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.list-img img{width:72px;height:54px;object-fit:contain;padding:5px;}
+.list-img.no-img img{display:none;}
+.list-body{display:flex;align-items:center;gap:0;flex:1;padding:0;min-width:0;}
+.list-name-col{padding:10px 14px;flex:1;min-width:0;}
+.list-set-num{font-size:10px;color:var(--text2);font-weight:600;}
+.list-set-name{font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.list-col{padding:10px 12px;text-align:center;border-left:1px solid var(--border);min-width:80px;flex-shrink:0;}
+.list-col .val{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--text);line-height:1;}
+.list-col .lbl{font-size:9px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;}
+.list-col.theme-col{min-width:110px;}
+.list-col.tracker-col{min-width:100px;}
+.list-del{padding:10px;border-left:1px solid var(--border);flex-shrink:0;}
+.list-del button{background:transparent;border:1px solid rgba(255,83,112,0.2);color:rgba(255,83,112,0.5);border-radius:6px;padding:4px 8px;font-size:11px;cursor:pointer;transition:all 0.2s;}
+.list-del button:hover{background:rgba(255,83,112,0.15);border-color:#ff5370;color:#ff5370;}
+
+/* ── TABLE VIEW ── */
+.table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead{background:#0d1020;position:sticky;top:0;z-index:5;}
+thead th{
+  padding:11px 14px;text-align:left;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.2px;color:var(--text2);
+  border-bottom:2px solid var(--border);white-space:nowrap;cursor:pointer;
+  user-select:none;transition:color 0.2s;
+}
+thead th:hover{color:var(--accent);}
+thead th.sorted{color:var(--accent);}
+thead th .sort-arrow{margin-left:4px;opacity:0.5;font-size:9px;}
+thead th.sorted .sort-arrow{opacity:1;}
+tbody tr{border-bottom:1px solid var(--border);transition:background 0.15s;}
+tbody tr:hover{background:var(--surface2);}
+tbody tr.hidden{display:none;}
+tbody td{padding:9px 14px;vertical-align:middle;}
+.td-img{width:60px;padding:4px 8px!important;}
+.td-img img{width:52px;height:38px;object-fit:contain;background:#111520;border-radius:4px;display:block;}
+.td-img.no-img img{opacity:0.15;}
+.td-num{font-size:11px;color:var(--text2);font-weight:700;white-space:nowrap;}
+.td-name{font-weight:600;color:var(--text);min-width:180px;}
+.td-theme span{padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;}
+.td-year,.td-pieces,.td-figs,.td-era{text-align:center;font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--text);}
+.td-era span{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;}
+.td-tracker a{font-size:11px;color:var(--accent);text-decoration:none;font-weight:700;padding:3px 8px;border:1px solid rgba(255,215,0,0.3);border-radius:6px;transition:all 0.2s;}
+.td-tracker a:hover{background:rgba(255,215,0,0.1);}
+.td-tracker span{font-size:10px;color:var(--text2);}
+.td-del button{background:transparent;border:1px solid rgba(255,83,112,0.2);color:rgba(255,83,112,0.5);border-radius:4px;padding:3px 8px;font-size:10px;cursor:pointer;transition:all 0.2s;}
+.td-del button:hover{background:rgba(255,83,112,0.15);border-color:#ff5370;color:#ff5370;}
+.table-footer{background:var(--surface);border-top:2px solid var(--border);padding:10px 14px;display:flex;gap:24px;}
+.table-footer .tf{font-size:11px;color:var(--text2);}
+.table-footer .tf span{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--accent);margin-left:4px;}
+
+/* ADD MODAL */
+.add-btn{position:fixed;bottom:28px;right:28px;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;font-size:26px;cursor:pointer;box-shadow:0 4px 20px rgba(255,215,0,0.3);transition:all 0.2s;z-index:200;display:flex;align-items:center;justify-content:center;color:#000;font-weight:700;}
+.add-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(255,215,0,0.5);}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;width:100%;max-width:460px;margin:16px;}
+.modal h2{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--accent);margin-bottom:5px;}
+.modal p{font-size:12px;color:var(--text2);margin-bottom:20px;}
+.mrow{display:flex;gap:9px;margin-bottom:12px;}
+.modal input{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:9px 12px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;width:100%;}
+.modal input:focus{border-color:var(--accent);}
+.mlabel{font-size:10px;color:var(--text2);letter-spacing:0.5px;margin-bottom:4px;display:block;text-transform:uppercase;}
+.fetch-btn{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:9px 14px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600;white-space:nowrap;transition:all 0.2s;}
+.fetch-btn:hover{border-color:var(--accent);color:var(--accent);}
+.preview-box{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:14px;display:none;}
+.preview-box.show{display:flex;gap:12px;align-items:center;}
+.preview-img{width:72px;height:54px;object-fit:contain;background:#111520;border-radius:6px;}
+.preview-info .pname{font-size:13px;font-weight:700;color:var(--text);}
+.preview-info .pmeta{font-size:11px;color:var(--text2);margin-top:3px;}
+.mactions{display:flex;gap:9px;margin-top:4px;}
+.btn-cancel{flex:1;background:transparent;border:1px solid var(--border);color:var(--text2);border-radius:8px;padding:9px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600;}
+.btn-cancel:hover{border-color:var(--red);color:var(--red);}
+.btn-add{flex:2;background:linear-gradient(90deg,rgba(255,215,0,0.2),rgba(255,107,53,0.2));border:1px solid var(--accent);color:var(--accent);border-radius:8px;padding:9px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:700;transition:all 0.2s;}
+.btn-add:hover{background:linear-gradient(90deg,rgba(255,215,0,0.32),rgba(255,107,53,0.32));}
+.btn-add:disabled{opacity:0.4;cursor:not-allowed;}
+.smsg{font-size:11px;margin-top:7px;min-height:16px;}
+.smsg.ok{color:var(--green);} .smsg.err{color:var(--red);}
+
+/* BREAKDOWN */
+.breakdown{padding:0 40px 80px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:12px;}
+.theme-bars{display:flex;flex-direction:column;gap:6px;max-width:500px;}
+.theme-bar{display:flex;align-items:center;gap:10px;}
+.tbname{width:120px;font-size:11px;color:var(--text2);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tbtrack{flex:1;background:var(--surface);border-radius:4px;height:16px;overflow:hidden;}
+.tbfill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:7px;font-size:10px;font-weight:700;color:rgba(0,0,0,0.6);min-width:20px;}
+.tbcount{width:20px;font-size:11px;color:var(--text2);text-align:right;}
+
+@media(max-width:700px){
+  .hero{padding:20px 16px;} .hero-title{font-size:36px;}
+  .controls-bar{padding:10px 16px;} .content-wrap{padding:14px 14px 80px;}
+  .breakdown{padding:0 14px 60px;} .sets-grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr));}
+  .list-col.theme-col,.list-col.tracker-col{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-title">My LEGO Collection</div>
+  <div class="hero-sub">Personal database · <span id="heroCount">89</span> sets · All themes and eras</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="big" id="statSets">89</div><div class="lbl">Total Sets</div></div>
+    <div class="stat-card"><div class="big" id="statPieces">24,458</div><div class="lbl">Total Pieces</div></div>
+    <a href="LEGO_Minifigures.html" class="stat-card" style="text-decoration:none;cursor:pointer;display:block" onmouseover="this.style.borderColor='#FF6B35'" onmouseout="this.style.borderColor='var(--border)'"><div class="big" id="statFigs" style="color:#FF6B35">140</div><div class="lbl" style="color:#FF6B35">Minifigures ↗</div></a>
+    <div class="stat-card"><div class="big" id="statTracked">3</div><div class="lbl">Tracked Sets</div></div>
+    <div class="stat-card"><div class="big" id="foundCount">—</div><div class="lbl">Lots Found</div></div>
+    <a href="LEGO_Missing_Pieces.html" class="stat-card" style="text-decoration:none;cursor:pointer;transition:border-color 0.2s" onmouseover="this.style.borderColor='#ff5370'" onmouseout="this.style.borderColor='var(--border)'"><div class="big" id="missingCount" style="color:#ff5370">—</div><div class="lbl" style="color:#ff5370">Lots Missing ↗</div></a>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Add New Set</h2>
+    <p>Enter a set number to look it up, then fill in any missing details.</p>
+    <div class="mrow">
+      <div style="flex:1"><label class="mlabel">Set Number</label><input type="text" id="addSetNum" placeholder="e.g. 42177" oninput="clearPreview()"></div>
+      <div style="display:flex;align-items:flex-end"><button class="fetch-btn" onclick="lookupSet()">Look up ↗</button></div>
+    </div>
+    <div class="preview-box" id="previewBox">
+      <img class="preview-img" id="previewImg" src="" alt="">
+      <div class="preview-info"><div class="pname" id="previewName"></div><div class="pmeta" id="previewMeta"></div></div>
+    </div>
+    <div class="mrow">
+      <div style="flex:2"><label class="mlabel">Set Name</label><input type="text" id="addName" placeholder="Name"></div>
+      <div style="flex:1"><label class="mlabel">Year</label><input type="number" id="addYear" placeholder="2024"></div>
+    </div>
+    <div class="mrow">
+      <div style="flex:1"><label class="mlabel">Theme</label><input type="text" id="addTheme" placeholder="e.g. Technic"></div>
+      <div style="flex:1"><label class="mlabel">Pieces</label><input type="number" id="addPieces" placeholder="0"></div>
+      <div style="flex:1"><label class="mlabel">Minifigs</label><input type="number" id="addFigs" placeholder="0"></div>
+    </div>
+    <div class="smsg" id="statusMsg"></div>
+    <div class="mactions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-add" id="btnAdd" onclick="addSet()" disabled>Add to Collection</button>
+    </div>
+  </div>
+</div>
+
+<!-- Token Modal -->
+<div id="tokenModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px)">
+  <div style="background:#1a1d27;border:1px solid #2d3250;border-radius:14px;padding:28px;width:100%;max-width:440px;margin:16px">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:#FFD700;margin-bottom:6px">GitHub Sync Token</div>
+    <p style="font-size:12px;color:#8892b0;margin-bottom:20px">Enter your GitHub Personal Access Token (repo scope) to enable auto-sync across devices.</p>
+    <input id="tokenInput" type="password" placeholder="ghp_..." style="width:100%;background:#0f1117;border:1px solid #2d3250;color:#e8eaf6;border-radius:8px;padding:10px 14px;font-size:13px;font-family:inherit;outline:none;margin-bottom:12px">
+    <div style="display:flex;gap:8px">
+      <button onclick="document.getElementById('tokenModal').style.display='none'" style="flex:1;background:transparent;border:1px solid #2d3250;color:#8892b0;border-radius:8px;padding:9px;font-size:13px;font-family:inherit;cursor:pointer">Cancel</button>
+      <button onclick="saveToken()" style="flex:2;background:linear-gradient(90deg,rgba(255,215,0,0.2),rgba(255,107,53,0.2));border:1px solid #FFD700;color:#FFD700;border-radius:8px;padding:9px;font-size:13px;font-family:inherit;cursor:pointer;font-weight:700">Save & Connect</button>
+    </div>
+  </div>
+</div>
+
+<!-- Build Tracker Modal -->
+<div id="buildModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:400;align-items:center;justify-content:center;backdrop-filter:blur(4px)">
+  <div style="background:#1a1d27;border:1px solid #2d3250;border-radius:14px;padding:28px;width:100%;max-width:420px;margin:16px">
+    <!-- Set preview -->
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+      <img id="buildSetImg" src="" style="width:80px;height:60px;object-fit:contain;background:#111520;border-radius:8px;border:1px solid #2d3250;flex-shrink:0">
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#64ffda;line-height:1">Build Tracker</div>
+        <div id="buildSetName" style="font-size:14px;font-weight:700;color:var(--text);margin-top:4px"></div>
+        <div id="buildSetId" style="font-size:11px;color:var(--text2)"></div>
+      </div>
+    </div>
+
+    <div id="serverStatus" style="font-size:11px;margin-bottom:16px;padding:8px 12px;border-radius:6px;background:rgba(255,83,112,0.1);border:1px solid rgba(255,83,112,0.3);color:#ff5370">
+      ⚠ Checking for local server...
+    </div>
+
+    <div id="buildProgress" style="display:none;margin-bottom:14px">
+      <div style="background:#0f1117;border-radius:4px;height:4px;overflow:hidden;margin-bottom:8px">
+        <div id="buildBar" style="height:100%;background:linear-gradient(90deg,#64ffda,#FFD700);width:0%;transition:width 0.5s"></div>
+      </div>
+      <div id="buildLog" style="font-size:11px;color:#8892b0"></div>
+    </div>
+
+    <div style="display:flex;gap:8px">
+      <button onclick="closeBuildModal()" style="flex:1;background:transparent;border:1px solid #2d3250;color:#8892b0;border-radius:8px;padding:10px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:600">Cancel</button>
+      <button id="buildBtn" onclick="startBuild()" disabled style="flex:2;background:linear-gradient(90deg,rgba(100,255,218,0.2),rgba(255,215,0,0.2));border:1px solid #64ffda;color:#64ffda;border-radius:8px;padding:10px;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:700">Yes, Build It</button>
+    </div>
+    <p style="font-size:10px;color:#8892b0;margin-top:10px;text-align:center">Requires <strong style="color:#FFD700">python make_tracker.py</strong> running in your Lego folder</p>
+  </div>
+</div>
+<button class="add-btn" onclick="openModal()" title="Add new set">+</button>
+
+<div class="controls-bar">
+  <div class="sw"><span class="si">🔍</span><input type="text" id="searchBox" placeholder="Search sets, themes..." oninput="filterAll()"></div>
+  <select id="themeFilter" onchange="filterAll()"><option value="">All Themes</option></select>
+  <select id="eraFilter" onchange="filterAll()">
+    <option value="">All Eras</option>
+    <option value="Modern">Modern (2017+)</option>
+    <option value="Y2K">Y2K (1999–2016)</option>
+    <option value="Vintage">Vintage (pre-1999)</option>
+  </select>
+  <button class="pill active" id="pill-all" onclick="setTracked('all')">All</button>
+  <button class="pill" id="pill-yes" onclick="setTracked('yes')">✓ Tracked</button>
+  <button class="pill" id="pill-no" onclick="setTracked('no')">✗ Untracked</button>
+  <div class="vt">
+    <button class="vtb active" id="vt-grid" onclick="setView('grid')">⊞</button>
+    <button class="vtb" id="vt-list" onclick="setView('list')">≡</button>
+    <button class="vtb" id="vt-table" onclick="setView('table')">⊟</button>
+  </div>
+  <a href="LEGO_Missing_Pieces.html" style="text-decoration:none"><button class="vtb" style="background:rgba(255,83,112,0.12);border-color:rgba(255,83,112,0.3);color:#ff5370;font-weight:700">🔍 Missing</button></a>
+  <span class="rc" id="rc" style="display:none"></span>
+  <div style="display:flex;align-items:center;gap:6px;border-left:1px solid var(--border);padding-left:10px;margin-left:2px;flex-shrink:0">
+    <span id="syncStatus" style="font-size:10px;font-weight:700;white-space:nowrap;color:#8892b0;min-width:80px">● —</span>
+    <button onclick="GitHubSync.save()" style="background:rgba(100,255,218,0.1);border:1px solid rgba(100,255,218,0.25);color:#64ffda;border-radius:6px;padding:4px 9px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">↑ Save</button>
+    <button onclick="GitHubSync.load().then(d=>{if(d)refresh()})" style="background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.25);color:#FFD700;border-radius:6px;padding:4px 9px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">↓ Load</button>
+    <button onclick="GitHubSync.promptToken()" style="background:transparent;border:1px solid var(--border);color:var(--text2);border-radius:6px;padding:4px 7px;font-size:11px;cursor:pointer;font-family:inherit" title="Set GitHub token">🔑</button>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <!-- GRID -->
+  <div class="sets-grid" id="viewGrid"></div>
+  <!-- LIST -->
+  <div class="sets-list" id="viewList" style="display:none"></div>
+  <!-- TABLE -->
+  <div class="table-wrap" id="viewTable" style="display:none">
+    <table id="mainTable">
+      <thead>
+        <tr>
+          <th style="width:60px"></th>
+          <th onclick="sortTable('id')" id="th-id">Set # <span class="sort-arrow" id="sa-id">↕</span></th>
+          <th onclick="sortTable('name')" id="th-name">Name <span class="sort-arrow" id="sa-name">↕</span></th>
+          <th onclick="sortTable('theme')" id="th-theme">Theme <span class="sort-arrow" id="sa-theme">↕</span></th>
+          <th onclick="sortTable('year')" id="th-year">Year <span class="sort-arrow" id="sa-year">↕</span></th>
+          <th onclick="sortTable('pieces')" id="th-pieces">Pieces <span class="sort-arrow" id="sa-pieces">↕</span></th>
+          <th onclick="sortTable('minifigs')" id="th-minifigs">Figs <span class="sort-arrow" id="sa-minifigs">↕</span></th>
+          <th onclick="sortTable('era')" id="th-era">Era <span class="sort-arrow" id="sa-era">↕</span></th>
+          <th>Tracker</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+      <tfoot>
+        <tr class="table-footer">
+          <td colspan="10">
+            <div style="display:flex;gap:24px;flex-wrap:wrap;">
+              <div class="tf">Sets shown: <span id="tfCount">—</span></div>
+              <div class="tf">Total pieces: <span id="tfPieces">—</span></div>
+              <div class="tf">Total minifigs: <span id="tfFigs">—</span></div>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<div class="breakdown">
+  <div class="section-title">Collection by Theme</div>
+  <div class="theme-bars" id="themeBars"></div>
+</div>
+
+<script>
+const SEED = [{"id": "76308", "name": "Spider-Man Mech vs. Anti-Venom", "theme": "Marvel", "year": 2025, "pieces": 213, "minifigs": 2, "tracker": null}, {"id": "30665", "name": "Baby Gorilla Encounter", "theme": "City", "year": 2024, "pieces": 36, "minifigs": 0, "tracker": null}, {"id": "30685", "name": "TIE Interceptor Mini-Build", "theme": "Star Wars", "year": 2024, "pieces": 60, "minifigs": 0, "tracker": null}, {"id": "60430", "name": "Interstellar Spaceship", "theme": "City", "year": 2024, "pieces": 240, "minifigs": 3, "tracker": null}, {"id": "76945", "name": "Atrociraptor Dinosaur: Bike Chase", "theme": "Jurassic World", "year": 2022, "pieces": 196, "minifigs": 3, "tracker": null}, {"id": "42096", "name": "Porsche 911 RSR", "theme": "Technic", "year": 2019, "pieces": 1580, "minifigs": 0, "tracker": null}, {"id": "42123", "name": "McLaren Senna GTR", "theme": "Technic", "year": 2021, "pieces": 830, "minifigs": 0, "tracker": null}, {"id": "76916", "name": "Porsche 963", "theme": "Speed Champions", "year": 2023, "pieces": 280, "minifigs": 2, "tracker": null}, {"id": "42154", "name": "2022 Ford GT", "theme": "Technic", "year": 2023, "pieces": 1466, "minifigs": 0, "tracker": null}, {"id": "42161", "name": "Lamborghini Hurac\u00e1n Tecnica", "theme": "Technic", "year": 2023, "pieces": 806, "minifigs": 0, "tracker": null}, {"id": "42151", "name": "Bugatti Bolide", "theme": "Technic", "year": 2023, "pieces": 905, "minifigs": 0, "tracker": null}, {"id": "42153", "name": "NASCAR Next Gen Chevrolet Camaro ZL1", "theme": "Technic", "year": 2023, "pieces": 672, "minifigs": 0, "tracker": null}, {"id": "21309", "name": "NASA Apollo Saturn V", "theme": "Ideas", "year": 2017, "pieces": 1969, "minifigs": 0, "tracker": null}, {"id": "10281", "name": "Bonsai Tree", "theme": "Icons Botanical", "year": 2021, "pieces": 878, "minifigs": 0, "tracker": null}, {"id": "10311", "name": "Orchid", "theme": "Icons Botanical", "year": 2022, "pieces": 608, "minifigs": 0, "tracker": null}, {"id": "21340", "name": "Tales of the Space Age", "theme": "Ideas", "year": 2023, "pieces": 688, "minifigs": 0, "tracker": null}, {"id": "75300", "name": "Imperial TIE Fighter", "theme": "Star Wars", "year": 2021, "pieces": 432, "minifigs": 2, "tracker": null}, {"id": "76991", "name": "Tails Workshop and Tornado Plane", "theme": "Sonic", "year": 2023, "pieces": 376, "minifigs": 3, "tracker": null}, {"id": "76909", "name": "Mercedes-AMG F1 W12 & Project One", "theme": "Speed Champions", "year": 2022, "pieces": 564, "minifigs": 2, "tracker": null}, {"id": "31144", "name": "Exotic Pink Parrot", "theme": "Creator", "year": 2023, "pieces": 253, "minifigs": 0, "tracker": null}, {"id": "42167", "name": "Mack LR Electric Garbage Truck", "theme": "Technic", "year": 2024, "pieces": 503, "minifigs": 0, "tracker": null}, {"id": "21034", "name": "London Skyline", "theme": "Architecture", "year": 2017, "pieces": 468, "minifigs": 0, "tracker": null}, {"id": "42141", "name": "McLaren Formula 1 Race Car", "theme": "Technic", "year": 2022, "pieces": 1432, "minifigs": 0, "tracker": null}, {"id": "10309", "name": "Succulents", "theme": "Icons Botanical", "year": 2022, "pieces": 771, "minifigs": 0, "tracker": null}, {"id": "76332", "name": "The Batman Batmobile", "theme": "DC Batman", "year": 2026, "pieces": 330, "minifigs": 1, "tracker": null}, {"id": "30732", "name": "Alex's Campfire Conflict", "theme": "Minecraft", "year": 2026, "pieces": 31, "minifigs": 2, "tracker": null}, {"id": "71853", "name": "Jay's Dragon Mech Fight", "theme": "Ninjago", "year": 2026, "pieces": 107, "minifigs": 2, "tracker": null}, {"id": "71851", "name": "Kai's Dragon Mech Battle Pack", "theme": "Ninjago", "year": 2026, "pieces": 85, "minifigs": 3, "tracker": null}, {"id": "71838", "name": "Kai's Motorcycle Speed Race", "theme": "Ninjago", "year": 2025, "pieces": 79, "minifigs": 2, "tracker": null}, {"id": "76335", "name": "Spider-Man vs. Ghost Rider Motorcycle", "theme": "Marvel", "year": 2026, "pieces": 72, "minifigs": 2, "tracker": null}, {"id": "11206", "name": "Spidey on his Motorcycle vs. Rhino", "theme": "Marvel", "year": 2026, "pieces": 61, "minifigs": 2, "tracker": null}, {"id": "42197", "name": "Backhoe Loader", "theme": "Technic", "year": 2025, "pieces": 104, "minifigs": 0, "tracker": null}, {"id": "42198", "name": "Bush Plane", "theme": "Technic", "year": 2025, "pieces": 333, "minifigs": 0, "tracker": null}, {"id": "60413", "name": "Fire Rescue Plane", "theme": "City", "year": 2024, "pieces": 478, "minifigs": 3, "tracker": null}, {"id": "42179", "name": "Planet Earth and Moon in Orbit", "theme": "Technic", "year": 2024, "pieces": 526, "minifigs": 0, "tracker": null}, {"id": "6511", "name": "Rescue Runabout \u26a0\ufe0f", "theme": "Town", "year": 1992, "pieces": 34, "minifigs": 1, "tracker": null}, {"id": "1970", "name": "Pirates Gun Cart", "theme": "Pirates", "year": 1993, "pieces": 31, "minifigs": 1, "tracker": null}, {"id": "5918", "name": "Scorpion Tracker", "theme": "Adventurers", "year": 1998, "pieces": 34, "minifigs": 2, "tracker": null}, {"id": "42149", "name": "Monster Jam Dragon", "theme": "Technic", "year": 2023, "pieces": 217, "minifigs": 0, "tracker": null}, {"id": "42150", "name": "Monster Jam Monster Mutt Dalmatian", "theme": "Technic", "year": 2023, "pieces": 244, "minifigs": 0, "tracker": null}, {"id": "42134", "name": "Monster Jam Megalodon", "theme": "Technic", "year": 2022, "pieces": 260, "minifigs": 0, "tracker": null}, {"id": "8808", "name": "F1 Racer", "theme": "Technic", "year": 1994, "pieces": 94, "minifigs": 0, "tracker": null}, {"id": "6045", "name": "Ninja Surprise", "theme": "Castle", "year": 1998, "pieces": 112, "minifigs": 5, "tracker": null}, {"id": "6516", "name": "Moon Walker", "theme": "Town", "year": 1995, "pieces": 75, "minifigs": 1, "tracker": null}, {"id": "6445", "name": "Emergency Evac", "theme": "Town", "year": 1998, "pieces": 101, "minifigs": 3, "tracker": null}, {"id": "6236", "name": "King Kahuka", "theme": "Pirates", "year": 1994, "pieces": 45, "minifigs": 2, "tracker": null}, {"id": "6057", "name": "Sea Serpent", "theme": "Castle", "year": 1992, "pieces": 126, "minifigs": 5, "tracker": null}, {"id": "6834", "name": "Celestial Sled", "theme": "Space", "year": 1993, "pieces": 55, "minifigs": 1, "tracker": null}, {"id": "6889", "name": "Recon Robot", "theme": "Space", "year": 1994, "pieces": 135, "minifigs": 2, "tracker": null}, {"id": "7130", "name": "Snowspeeder", "theme": "Star Wars", "year": 1999, "pieces": 212, "minifigs": 2, "tracker": null}, {"id": "6264", "name": "Forbidden Cove", "theme": "Pirates", "year": 1994, "pieces": 206, "minifigs": 4, "tracker": "LEGO_6264_Tracker.html"}, {"id": "6596", "name": "Wave Master", "theme": "Town", "year": 1995, "pieces": 134, "minifigs": 2, "tracker": null}, {"id": "6336", "name": "Launch Response Unit", "theme": "Town", "year": 1995, "pieces": 185, "minifigs": 3, "tracker": null}, {"id": "6490", "name": "Amazon Crossing", "theme": "Town", "year": 1997, "pieces": 115, "minifigs": 3, "tracker": null}, {"id": "6254", "name": "Rocky Reef", "theme": "Pirates", "year": 1995, "pieces": 103, "minifigs": 3, "tracker": null}, {"id": "6897", "name": "Rebel Hunter", "theme": "Space", "year": 1992, "pieces": 140, "minifigs": 2, "tracker": null}, {"id": "6520", "name": "Mobile Outpost", "theme": "Town", "year": 2000, "pieces": 218, "minifigs": 3, "tracker": null}, {"id": "6573", "name": "Arctic Expedition", "theme": "Town", "year": 2000, "pieces": 119, "minifigs": 2, "tracker": null}, {"id": "6835", "name": "Saucer Scout", "theme": "Space", "year": 1994, "pieces": 47, "minifigs": 1, "tracker": null}, {"id": "6665", "name": "River Runners", "theme": "Town", "year": 1994, "pieces": 65, "minifigs": 2, "tracker": null}, {"id": "1959", "name": "Ultra-Light", "theme": "Town", "year": 1993, "pieces": 40, "minifigs": 1, "tracker": null}, {"id": "6033", "name": "Treasure Transport", "theme": "Castle", "year": 1998, "pieces": 51, "minifigs": 2, "tracker": null}, {"id": "5902", "name": "River Raft", "theme": "Adventurers", "year": 1999, "pieces": 30, "minifigs": 1, "tracker": null}, {"id": "5938", "name": "Oasis Ambush", "theme": "Adventurers", "year": 1998, "pieces": 63, "minifigs": 3, "tracker": null}, {"id": "6879", "name": "Blizzard Baron", "theme": "Space", "year": 1993, "pieces": 77, "minifigs": 1, "tracker": null}, {"id": "5928", "name": "Bi-Wing Baron", "theme": "Adventurers", "year": 1998, "pieces": 68, "minifigs": 2, "tracker": null}, {"id": "7111", "name": "Droid Fighter", "theme": "Star Wars", "year": 1999, "pieces": 62, "minifigs": 0, "tracker": null}, {"id": "1610", "name": "Police Car", "theme": "Town", "year": 1991, "pieces": 23, "minifigs": 2, "tracker": null}, {"id": "6544", "name": "Shuttle Transcon 2", "theme": "Town", "year": 1995, "pieces": 342, "minifigs": 3, "tracker": "LEGO_6544_Tracker.html"}, {"id": "6558", "name": "Shark Cage Cove", "theme": "Town", "year": 1997, "pieces": 177, "minifigs": 3, "tracker": null}, {"id": "6584", "name": "Extreme Team Challenge", "theme": "Town", "year": 1998, "pieces": 354, "minifigs": 4, "tracker": null}, {"id": "6056", "name": "Dragon Wagon", "theme": "Castle", "year": 1993, "pieces": 99, "minifigs": 3, "tracker": null}, {"id": "6155", "name": "Deep Sea Predator", "theme": "Aquazone", "year": 1995, "pieces": 95, "minifigs": 2, "tracker": null}, {"id": "1821", "name": "Rally Racers", "theme": "Town", "year": 1996, "pieces": 201, "minifigs": 2, "tracker": null}, {"id": "1723", "name": "Castle/Pirates Value Pack", "theme": "Pirates", "year": 1994, "pieces": 80, "minifigs": 4, "tracker": null}, {"id": "6442", "name": "Sting Ray Explorer", "theme": "Town", "year": 1997, "pieces": 139, "minifigs": 2, "tracker": null}, {"id": "7131", "name": "Anakin's Podracer", "theme": "Star Wars", "year": 1999, "pieces": 120, "minifigs": 2, "tracker": null}, {"id": "6342", "name": "Beach Rescue Chopper", "theme": "Town", "year": 1993, "pieces": 133, "minifigs": 2, "tracker": null}, {"id": "6042", "name": "Dungeon Hunters", "theme": "Castle", "year": 1990, "pieces": 94, "minifigs": 4, "tracker": null}, {"id": "6815", "name": "Hovertron", "theme": "Space", "year": 1996, "pieces": 22, "minifigs": 1, "tracker": null}, {"id": "6341", "name": "Gas N Go Flyer", "theme": "Town", "year": 1994, "pieces": 102, "minifigs": 2, "tracker": null}, {"id": "6939", "name": "Saucer Centurion", "theme": "Space", "year": 1994, "pieces": 213, "minifigs": 2, "tracker": "LEGO_6939_Tracker.html"}, {"id": "1958", "name": "Windsurfer", "theme": "Town", "year": 1993, "pieces": 35, "minifigs": 1, "tracker": null}, {"id": "1971", "name": "Battering Ram", "theme": "Castle", "year": 1993, "pieces": 36, "minifigs": 2, "tracker": null}, {"id": "1969", "name": "Mini Robot", "theme": "Space", "year": 1993, "pieces": 30, "minifigs": 1, "tracker": null}, {"id": "6125", "name": "Sea Sprint 9", "theme": "Aquazone", "year": 1995, "pieces": 25, "minifigs": 1, "tracker": null}, {"id": "8022", "name": "Multi Model Starter Set", "theme": "Technic", "year": 1993, "pieces": 118, "minifigs": 0, "tracker": null}, {"id": "6467", "name": "Power Pitstop", "theme": "Town", "year": 1999, "pieces": 66, "minifigs": 2, "tracker": null}, {"id": "6555", "name": "Sea Hunter", "theme": "Town", "year": 1997, "pieces": 24, "minifigs": 1, "tracker": null}];
+const THEME_COLORS = {"Marvel": "#E23636", "Star Wars": "#FFE81F", "City": "#006DB7", "Jurassic World": "#5B8A00", "Technic": "#E3000B", "Speed Champions": "#FF6B00", "Ideas": "#00A650", "Icons Botanical": "#8DC63F", "Sonic": "#0066CC", "Creator": "#FF8C00", "Architecture": "#888888", "DC Batman": "#FFD700", "Minecraft": "#7CB342", "Ninjago": "#CC0000", "Pirates": "#8B4513", "Castle": "#6B4C9A", "Town": "#1565C0", "Space": "#0D47A1", "Adventurers": "#BF6900", "Aquazone": "#00838F"};
+const TRACKERS = {"6264": "LEGO_6264_Tracker.html", "6939": "LEGO_6939_Tracker.html", "6544": "LEGO_6544_Tracker.html"};
+const STORE_KEY = 'legoCollection';
+const TRACKER_KEYS = [
+  {key:'6264tracker',total:97},
+  {key:'6939tracker',total:70},
+  {key:'6544tracker',total:151},
+];
+
+function loadCollection() {
+  try {
+    const s = JSON.parse(localStorage.getItem(STORE_KEY));
+    if (s && Array.isArray(s) && s.length > 0) return s;
+  } catch(e) {}
+  localStorage.setItem(STORE_KEY, JSON.stringify(SEED));
+  return [...SEED];
+}
+function saveCollection() { localStorage.setItem(STORE_KEY, JSON.stringify(collection)); if(typeof GitHubSync!=="undefined") GitHubSync.scheduleSave(); }
+
+let collection = loadCollection();
+let trackedFilter = 'all';
+let currentView = 'grid';
+let sortCol = 'id';
+let sortAsc = true;
+
+function getEra(year) { return year >= 2017 ? 'Modern' : year >= 1999 ? 'Y2K' : 'Vintage'; }
+function getColor(theme) { return THEME_COLORS[theme] || '#6655AA'; }
+function getTracker(s) { return s.tracker || TRACKERS[s.id] || null; }
+
+function eraClass(era) { return era === 'Y2K' ? 'y2k' : era.toLowerCase(); }
+function eraBadge(era) { return `<span class="era-badge era-${eraClass(era)}">${era}</span>`; }
+function themeBadge(s) {
+  const c = getColor(s.theme);
+  return `<span class="theme-tag" style="background:${c}22;color:${c};border:1px solid ${c}55">${s.theme}</span>`;
+}
+
+// ── FILTER LOGIC ──────────────────────────────────────
+function matches(s) {
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  const theme = document.getElementById('themeFilter').value;
+  const era = document.getElementById('eraFilter').value;
+  const tracked = getTracker(s) ? 'yes' : 'no';
+  const sEra = getEra(s.year);
+  if (q && !(s.name+' '+s.id+' '+s.theme).toLowerCase().includes(q)) return false;
+  if (theme && s.theme !== theme) return false;
+  if (era && sEra !== era) return false;
+  if (trackedFilter === 'yes' && tracked !== 'yes') return false;
+  if (trackedFilter === 'no' && tracked !== 'no') return false;
+  return true;
+}
+
+function filterAll() {
+  if (currentView === 'grid') filterGrid();
+  else if (currentView === 'list') filterList();
+  else renderTable();
+}
+
+function setTracked(val) {
+  trackedFilter = val;
+  ['all','yes','no'].forEach(x => document.getElementById('pill-'+x).classList.toggle('active',x===val));
+  filterAll();
+}
+
+// ── VIEW SWITCHING ────────────────────────────────────
+function setView(v) {
+  currentView = v;
+  ['grid','list','table'].forEach(x => {
+    document.getElementById('vt-'+x).classList.toggle('active', x===v);
+    document.getElementById('view'+x.charAt(0).toUpperCase()+x.slice(1)).style.display = x===v ? '' : 'none';
+  });
+  if (v === 'grid') { renderGrid(); filterGrid(); }
+  else if (v === 'list') { renderList(); filterList(); }
+  else renderTable();
+}
+
+// ── GRID ──────────────────────────────────────────────
+function renderGrid() {
+  document.getElementById('viewGrid').innerHTML = collection.map(s => {
+    const era = getEra(s.year);
+    const tracker = getTracker(s);
+    // Build progress bar for tracked sets
+  const NEEDED_QTY = {"6264": {"0": 1, "1": 1, "2": 1, "3": 1, "4": 1, "5": 2, "6": 2, "7": 2, "8": 1, "9": 4, "10": 1, "11": 3, "12": 1, "13": 2, "14": 1, "15": 1, "16": 1, "17": 6, "18": 2, "19": 1, "20": 1, "21": 3, "22": 1, "23": 1, "24": 1, "25": 4, "26": 3, "27": 1, "28": 2, "29": 4, "30": 2, "31": 2, "32": 1, "33": 2, "34": 1, "35": 1, "36": 1, "37": 1, "38": 2, "39": 1, "40": 1, "41": 1, "42": 1, "43": 1, "44": 7, "45": 2, "46": 1, "47": 2, "48": 1, "49": 1, "50": 1, "51": 1, "52": 2, "53": 7, "54": 2, "55": 1, "56": 1, "57": 1, "58": 3, "59": 5, "60": 3, "61": 2, "62": 2, "63": 1, "64": 3, "65": 2, "66": 3, "67": 2, "68": 2, "69": 1, "70": 4, "71": 2, "72": 1, "73": 2, "74": 1, "75": 2, "76": 1, "77": 1, "78": 12, "79": 6, "80": 4, "81": 2, "82": 1, "83": 1, "84": 2, "85": 4, "86": 2, "87": 1, "88": 1, "89": 1, "90": 2, "91": 1, "92": 1, "93": 8, "94": 2, "95": 2}, "6939": {"0": 1, "1": 1, "2": 1, "3": 2, "4": 1, "5": 1, "6": 2, "7": 2, "8": 2, "9": 1, "10": 8, "11": 2, "12": 2, "13": 2, "14": 2, "15": 1, "16": 12, "17": 2, "18": 1, "19": 7, "20": 6, "21": 2, "22": 4, "23": 1, "24": 2, "25": 2, "26": 2, "27": 1, "28": 2, "29": 2, "30": 4, "31": 4, "32": 3, "33": 1, "34": 2, "35": 2, "36": 4, "37": 2, "38": 2, "39": 5, "40": 1, "41": 3, "42": 2, "43": 2, "44": 4, "45": 2, "46": 8, "47": 2, "48": 2, "49": 5, "50": 2, "51": 1, "52": 2, "53": 2, "54": 9, "55": 2, "56": 2, "57": 1, "58": 2, "59": 4, "60": 4, "61": 2, "62": 10, "63": 4, "64": 4, "65": 6, "66": 2, "67": 6, "68": 2, "69": 2}, "6544": {"0": 1, "1": 2, "2": 1, "3": 1, "4": 3, "5": 2, "6": 1, "7": 1, "8": 3, "9": 2, "10": 2, "11": 1, "12": 2, "13": 3, "14": 4, "15": 2, "16": 1, "17": 1, "18": 2, "19": 2, "20": 1, "21": 2, "22": 2, "23": 1, "24": 1, "25": 2, "26": 1, "27": 1, "28": 2, "29": 4, "30": 4, "31": 4, "32": 3, "33": 2, "34": 4, "35": 4, "36": 1, "37": 1, "38": 5, "39": 2, "40": 1, "41": 2, "42": 1, "43": 1, "44": 1, "45": 1, "46": 1, "47": 2, "48": 2, "49": 1, "50": 3, "51": 2, "52": 4, "53": 1, "54": 2, "55": 1, "56": 1, "57": 4, "58": 1, "59": 4, "60": 2, "61": 1, "62": 1, "63": 1, "64": 3, "65": 3, "66": 1, "67": 1, "68": 2, "69": 2, "70": 4, "71": 1, "72": 3, "73": 3, "74": 5, "75": 1, "76": 2, "77": 2, "78": 2, "79": 2, "80": 2, "81": 1, "82": 1, "83": 1, "84": 1, "85": 1, "86": 6, "87": 1, "88": 3, "89": 2, "90": 2, "91": 1, "92": 1, "93": 1, "94": 1, "95": 1, "96": 4, "97": 1, "98": 1, "99": 8, "100": 2, "101": 2, "102": 1, "103": 1, "104": 3, "105": 1, "106": 1, "107": 2, "108": 4, "109": 2, "110": 6, "111": 6, "112": 1, "113": 2, "114": 5, "115": 1, "116": 4, "117": 9, "118": 5, "119": 4, "120": 2, "121": 3, "122": 1, "123": 1, "124": 1, "125": 2, "126": 1, "127": 1, "128": 3, "129": 1, "130": 2, "131": 2, "132": 1, "133": 1, "134": 1, "135": 1, "136": 2, "137": 1, "138": 2, "139": 1, "140": 1, "141": 1, "142": 1, "143": 1, "144": 1, "145": 4, "146": 1, "147": 1, "148": 1, "149": 6, "150": 4}};
+  let progressBar = '';
+  if (tracker) {
+    const trackerKey = s.id + 'tracker';
+    try {
+      const state = JSON.parse(localStorage.getItem(trackerKey) || '{}');
+      const neededMap = NEEDED_QTY[s.id] || {};
+      const total = Object.keys(neededMap).length;
+      if (total > 0) {
+        const found = Object.entries(neededMap).filter(([row, needed]) => {
+          const f = parseInt(state[row] ?? '0');
+          return f >= needed;
+        }).length;
+        const pct = Math.round(found / total * 100);
+        const fillClass = pct === 100 ? 'complete' : pct < 30 ? 'low' : '';
+        progressBar = `<div class="progress-wrap">
+          <div class="progress-bar-bg"><div class="progress-bar-fill ${fillClass}" style="width:${pct}%"></div></div>
+          <div class="progress-label"><span>${found}/${total} lots found</span><span class="pct">${pct}%</span></div>
+        </div>`;
+      }
+    } catch(e) {}
+  }
+
+  const trackerBtn = ''; // removed — card itself is clickable
+    const cardTag = tracker ? `a href="${tracker}"` : 'div';
+    const cardClose = tracker ? 'a' : 'div';
+    const untrackedAttr = !tracker ? `onclick="promptBuildTracker('${s.id}','${s.name.replace(/'/g,String.fromCharCode(39))}')" style="cursor:pointer"` : '';
+    return `<${cardTag} ${untrackedAttr} class="set-card" data-id="${s.id}" data-theme="${s.theme}" data-era="${era}" data-tracked="${tracker?'yes':'no'}" data-name="${(s.name+' '+s.id+' '+s.theme).toLowerCase()}" style="${tracker?'cursor:pointer;text-decoration:none;':''}">
+      <div class="set-img-wrap">
+        <img src="https://img.bricklink.com/ItemImage/SN/0/${s.id}-1.png" alt="${s.name}" loading="lazy" onerror="this.parentElement.classList.add('no-img');this.style.display='none'">
+        <div class="set-img-placeholder">#${s.id}</div>
+        <div class="era-overlay">${eraBadge(era)}</div>
+        <button class="del-btn" onclick="deleteSet('${s.id}')" title="Remove">✕</button>
+      </div>
+      <div class="set-body">
+        <div class="set-num">#${s.id} · ${s.year}</div>
+        <div class="set-name">${s.name}</div>
+        <div class="set-meta">${themeBadge(s)}</div>
+        <div class="set-stats">
+          <div class="sstat"><span class="sstat-val">${s.pieces.toLocaleString()}</span><span class="sstat-lbl">pcs</span></div>
+          <div class="sstat"><span class="sstat-val">${s.minifigs}</span><span class="sstat-lbl">figs</span></div>
+        </div>
+        ${progressBar}${trackerBtn}
+      </div>
+    </${cardClose}>`;
+  }).join('');
+}
+
+function filterGrid() {
+  let visible = 0;
+  document.querySelectorAll('#viewGrid .set-card').forEach(card => {
+    const s = collection.find(x=>x.id===card.dataset.id);
+    const show = s && matches(s);
+    card.classList.toggle('hidden',!show);
+    if(show) visible++;
+  });
+  document.getElementById('rc').textContent = visible + ' sets';
+}
+
+// ── LIST ──────────────────────────────────────────────
+function renderList() {
+  document.getElementById('viewList').innerHTML = collection.map(s => {
+    const era = getEra(s.year);
+    const color = getColor(s.theme);
+    const tracker = getTracker(s);
+    const trackerBtn = tracker
+      ? `<a href="${tracker}" class="tracker-btn" style="font-size:10px;padding:4px 8px">📋 Tracker</a>`
+      : `<span class="no-tracker" style="font-size:10px;padding:4px 8px">—</span>`;
+    return `<div class="list-card" data-id="${s.id}" data-theme="${s.theme}" data-era="${era}" data-tracked="${tracker?'yes':'no'}" data-name="${(s.name+' '+s.id+' '+s.theme).toLowerCase()}">
+      <div class="list-img">
+        <img src="https://img.bricklink.com/ItemImage/SN/0/${s.id}-1.png" alt="${s.name}" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+      </div>
+      <div class="list-body">
+        <div class="list-name-col">
+          <div class="list-set-num">#${s.id}</div>
+          <div class="list-set-name">${s.name}</div>
+        </div>
+        <div class="list-col theme-col"><span class="theme-tag" style="background:${color}22;color:${color};border:1px solid ${color}55">${s.theme}</span></div>
+        <div class="list-col"><div class="val">${s.year}</div><div class="lbl">Year</div></div>
+        <div class="list-col"><div class="val">${s.pieces.toLocaleString()}</div><div class="lbl">Pieces</div></div>
+        <div class="list-col"><div class="val">${s.minifigs}</div><div class="lbl">Figs</div></div>
+        <div class="list-col"><div class="era-badge era-${eraClass(era)}">${era}</div></div>
+        <div class="list-col tracker-col">${trackerBtn}</div>
+      </div>
+      <div class="list-del"><button onclick="deleteSet('${s.id}')">✕</button></div>
+    </div>`;
+  }).join('');
+}
+
+function filterList() {
+  let visible = 0;
+  document.querySelectorAll('#viewList .list-card').forEach(card => {
+    const s = collection.find(x=>x.id===card.dataset.id);
+    const show = s && matches(s);
+    card.classList.toggle('hidden',!show);
+    if(show) visible++;
+  });
+  document.getElementById('rc').textContent = visible + ' sets';
+}
+
+// ── TABLE ─────────────────────────────────────────────
+function sortTable(col) {
+  if (sortCol === col) sortAsc = !sortAsc;
+  else { sortCol = col; sortAsc = true; }
+  // Update header arrows
+  document.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
+  const thEl = document.getElementById('th-'+col);
+  if (thEl) {
+    thEl.classList.add('sorted');
+    thEl.querySelector('.sort-arrow').textContent = sortAsc ? '↑' : '↓';
+  }
+  renderTable();
+}
+
+function renderTable() {
+  const filtered = collection.filter(matches);
+
+  // Sort
+  filtered.sort((a,b) => {
+    let av = a[sortCol] ?? getEra(a.year);
+    let bv = b[sortCol] ?? getEra(b.year);
+    if (sortCol === 'era') { av = getEra(a.year); bv = getEra(b.year); }
+    if (typeof av === 'string') return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    return sortAsc ? av - bv : bv - av;
+  });
+
+  const totalPieces = filtered.reduce((a,s)=>a+(s.pieces||0),0);
+  const totalFigs = filtered.reduce((a,s)=>a+(s.minifigs||0),0);
+
+  document.getElementById('tableBody').innerHTML = filtered.map((s,i) => {
+    const era = getEra(s.year);
+    const color = getColor(s.theme);
+    const tracker = getTracker(s);
+    const trackerCell = tracker
+      ? `<a href="${tracker}">📋 Tracker</a>`
+      : `<span>—</span>`;
+    const rowBg = i%2===0 ? '' : 'background:rgba(255,255,255,0.02)';
+    return `<tr style="${rowBg}">
+      <td class="td-img"><img src="https://img.bricklink.com/ItemImage/SN/0/${s.id}-1.png" alt="${s.name}" loading="lazy" onerror="this.parentElement.classList.add('no-img')"></td>
+      <td class="td-num">#${s.id}</td>
+      <td class="td-name">${s.name}</td>
+      <td class="td-theme"><span style="background:${color}22;color:${color};border:1px solid ${color}55;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700">${s.theme}</span></td>
+      <td class="td-year">${s.year}</td>
+      <td class="td-pieces">${s.pieces.toLocaleString()}</td>
+      <td class="td-figs">${s.minifigs}</td>
+      <td class="td-era">${eraBadge(era)}</td>
+      <td class="td-tracker">${trackerCell}</td>
+      <td class="td-del"><button onclick="deleteSet('${s.id}')">✕</button></td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('rc').textContent = filtered.length + ' sets';
+  document.getElementById('tfCount').textContent = filtered.length;
+  document.getElementById('tfPieces').textContent = totalPieces.toLocaleString();
+  document.getElementById('tfFigs').textContent = totalFigs;
+}
+
+// ── SHARED UTILS ──────────────────────────────────────
+function updateStats() {
+  const total = collection.length;
+  const pieces = collection.reduce((a,s)=>a+(s.pieces||0),0);
+  const figs = collection.reduce((a,s)=>a+(s.minifigs||0),0);
+  const tracked = collection.filter(s=>getTracker(s)).length;
+  document.getElementById('statSets').textContent = total;
+  document.getElementById('heroCount').textContent = total;
+  document.getElementById('statPieces').textContent = pieces.toLocaleString();
+  document.getElementById('statFigs').textContent = figs;
+  document.getElementById('statTracked').textContent = tracked;
+  readTrackerStats();
+}
+
+function buildThemeFilter() {
+  const themes = [...new Set(collection.map(s=>s.theme))].sort();
+  const sel = document.getElementById('themeFilter');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">All Themes</option>' +
+    themes.map(t=>`<option value="${t}"${t===cur?' selected':''}>${t}</option>`).join('');
+}
+
+function buildThemeBars() {
+  const counts={};
+  collection.forEach(s=>counts[s.theme]=(counts[s.theme]||0)+1);
+  const sorted=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  const max=sorted[0]?.[1]||1;
+  const pal=['#FFD700','#FF6B35','#64ffda','#7B61FF','#FF4081','#00BCD4','#8BC34A','#FF9800','#E91E63','#00E676','#29B6F6','#AB47BC'];
+  document.getElementById('themeBars').innerHTML=sorted.map(([t,c],i)=>
+    `<div class="theme-bar"><div class="tbname">${t}</div><div class="tbtrack"><div class="tbfill" style="width:${(c/max*100).toFixed(1)}%;background:${pal[i%pal.length]}">${c>1?c:''}</div></div><div class="tbcount">${c}</div></div>`
+  ).join('');
+}
+
+function readTrackerStats() {
+  let found=0,missing=0;
+  TRACKER_KEYS.forEach(t=>{
+    try{
+      const state=JSON.parse(localStorage.getItem(t.key)||'{}');
+      const vals=Object.values(state);
+      found+=vals.filter(v=>parseInt(v)>0).length;
+      missing+=t.total-vals.filter(v=>parseInt(v)>=1).length;
+    }catch(e){}
+  });
+  document.getElementById('foundCount').textContent=found||'—';
+  document.getElementById('missingCount').textContent=missing||'—';
+}
+
+function deleteSet(id) {
+  if (!confirm(`Remove set #${id} from your collection?`)) return;
+  collection = collection.filter(s=>s.id!==id);
+  saveCollection();
+  refresh();
+}
+
+function refresh() {
+  updateStats(); buildThemeFilter(); buildThemeBars();
+  if (currentView==='grid') { renderGrid(); filterGrid(); }
+  else if (currentView==='list') { renderList(); filterList(); }
+  else renderTable();
+}
+
+// ── MODAL ─────────────────────────────────────────────
+function openModal(){ document.getElementById('modalOverlay').classList.add('open'); document.getElementById('addSetNum').focus(); }
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); clearModal(); }
+function clearModal(){
+  ['addSetNum','addName','addYear','addTheme','addPieces','addFigs'].forEach(id=>document.getElementById(id).value='');
+  clearPreview(); document.getElementById('statusMsg').textContent=''; document.getElementById('btnAdd').disabled=true;
+}
+function clearPreview(){
+  document.getElementById('previewBox').classList.remove('show');
+  document.getElementById('btnAdd').disabled=true;
+  document.getElementById('statusMsg').textContent='';
+}
+async function lookupSet(){
+  const num=document.getElementById('addSetNum').value.trim(); if(!num) return;
+  const msg=document.getElementById('statusMsg'); msg.className='smsg'; msg.textContent='Looking up...';
+  const img=new Image();
+  img.onload=()=>{
+    document.getElementById('previewImg').src=`https://img.bricklink.com/ItemImage/SN/0/${num}-1.png`;
+    document.getElementById('previewBox').classList.add('show');
+    document.getElementById('previewName').textContent=`Set #${num}`;
+    document.getElementById('previewMeta').textContent='Image found! Fill in the details below.';
+    msg.className='smsg ok'; msg.textContent='✓ Image found — fill in details and click Add.';
+    document.getElementById('btnAdd').disabled=false;
+  };
+  img.onerror=()=>{
+    document.getElementById('previewBox').classList.remove('show');
+    msg.className='smsg err'; msg.textContent='⚠ No image found — you can still add it manually.';
+    document.getElementById('btnAdd').disabled=false;
+  };
+  img.src=`https://img.bricklink.com/ItemImage/SN/0/${num}-1.png`;
+}
+function addSet(){
+  const id=document.getElementById('addSetNum').value.trim();
+  const name=document.getElementById('addName').value.trim()||`Set #${id}`;
+  const year=parseInt(document.getElementById('addYear').value)||new Date().getFullYear();
+  const theme=document.getElementById('addTheme').value.trim()||'Unknown';
+  const pieces=parseInt(document.getElementById('addPieces').value)||0;
+  const minifigs=parseInt(document.getElementById('addFigs').value)||0;
+  if(!id){ document.getElementById('statusMsg').textContent='Please enter a set number.'; return; }
+  if(collection.find(s=>s.id===id)){
+    const m=document.getElementById('statusMsg'); m.className='smsg err'; m.textContent=`Set #${id} is already in your collection!`; return;
+  }
+  collection.push({id,name,theme,year,pieces,minifigs,tracker:TRACKERS[id]||null});
+  saveCollection(); closeModal(); refresh();
+}
+document.getElementById('modalOverlay').addEventListener('click',e=>{ if(e.target===document.getElementById('modalOverlay')) closeModal(); });
+document.getElementById('addSetNum').addEventListener('keydown',e=>{ if(e.key==='Enter') lookupSet(); });
+
+
+// ── INIT ──────────────────────────────────────────────
+refresh();
+</script>
+
+<script>
+// ═══════════════════════════════════════════════════
+// GITHUB SYNC — jroubos/lego-collection
+// ═══════════════════════════════════════════════════
+const GITHUB_CONFIG = {
+  owner:'jroubos', repo:'lego-collection',
+  file:'data.json', branch:'main',
+  get token(){ return localStorage.getItem('gh_token')||''; }
+};
+const GitHubSync = {
+  _timer:null,
+  async _sha(){
+    if(!GITHUB_CONFIG.token) return null;
+    try{
+      const r=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.file}?ref=${GITHUB_CONFIG.branch}&t=${Date.now()}`,
+        {headers:{Authorization:`token ${GITHUB_CONFIG.token}`,Accept:'application/vnd.github.v3+json'}});
+      return r.ok?(await r.json()).sha:null;
+    }catch(e){return null;}
+  },
+  async load(){
+    if(!GITHUB_CONFIG.token){this.status('no-token');return null;}
+    this.status('loading');
+    try{
+      const r=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.file}?ref=${GITHUB_CONFIG.branch}&t=${Date.now()}`,
+        {headers:{Authorization:`token ${GITHUB_CONFIG.token}`,Accept:'application/vnd.github.v3+json'}});
+      if(!r.ok){this.status('error');return null;}
+      const d=await r.json();
+      const content=JSON.parse(atob(d.content.replace(/\n/g,'')));
+      if(content.collection&&content.collection.length>0)
+        localStorage.setItem('legoCollection',JSON.stringify(content.collection));
+      if(content.trackers)
+        Object.entries(content.trackers).forEach(([k,v])=>{
+          if(v&&Object.keys(v).length>0) localStorage.setItem(k,JSON.stringify(v));
+        });
+      this.status('saved',content.lastSaved);
+      return content;
+    }catch(e){this.status('error');return null;}
+  },
+  payload(){
+    const col=(()=>{try{return JSON.parse(localStorage.getItem('legoCollection')||'[]');}catch(e){return[];}})();
+    const tr={};
+    ['6264tracker','6939tracker','6544tracker'].forEach(k=>{
+      try{tr[k]=JSON.parse(localStorage.getItem(k)||'{}');}catch(e){tr[k]={};}
+    });
+    return{collection:col,trackers:tr,lastSaved:new Date().toISOString()};
+  },
+  async save(){
+    if(!GITHUB_CONFIG.token){this.status('no-token');return false;}
+    this.status('saving');
+    try{
+      const content=btoa(unescape(encodeURIComponent(JSON.stringify(this.payload(),null,2))));
+      const sha=await this._sha();
+      const body={message:`[skip ci] data: ${new Date().toLocaleString()}`,content,branch:GITHUB_CONFIG.branch};
+      if(sha) body.sha=sha;
+      const r=await fetch(`https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.file}`,
+        {method:'PUT',headers:{Authorization:`token ${GITHUB_CONFIG.token}`,Accept:'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(body)});
+      if(!r.ok){this.status('error');return false;}
+      this.status('saved',new Date().toISOString());
+      return true;
+    }catch(e){this.status('error');return false;}
+  },
+  scheduleSave(){
+    clearTimeout(this._timer);
+    this.status('pending');
+    this._timer=setTimeout(()=>this.save(),2500);
+  },
+  status(s,ts){
+    const el=document.getElementById('syncStatus');
+    if(!el) return;
+    const t=ts?' · '+new Date(ts).toLocaleTimeString():'';
+    const m={loading:['↓ Loading…','#FFD700'],pending:['● Unsaved','#FF6B35'],saving:['↑ Saving…','#FFD700'],
+      saved:['✓ Saved'+t,'#64ffda'],error:['✕ Error','#ff5370'],'no-token':['⚠ Set token','#FF6B35']};
+    const[text,color]=m[s]||['● —','#8892b0'];
+    el.textContent=text; el.style.color=color;
+  },
+  promptToken(){
+    const input = document.getElementById('tokenInput');
+    if(input) input.value = GITHUB_CONFIG.token || '';
+    const modal = document.getElementById('tokenModal');
+    if(modal) modal.style.display='flex';
+  }
+};
+
+// Auto-load on open — wrapped in try/catch so it never breaks the main app
+(async()=>{
+  try{
+    if(GITHUB_CONFIG.token){
+      const data=await GitHubSync.load();
+      if(data) refresh();
+    } else {
+      GitHubSync.status('no-token');
+    }
+  }catch(e){console.warn('GitHub sync error:',e);}
+})();
+
+async function saveToken() {
+  const t = document.getElementById('tokenInput').value.trim();
+  if (!t) return;
+  localStorage.setItem('gh_token', t);
+  document.getElementById('tokenModal').style.display = 'none';
+  GitHubSync.status('loading');
+  try {
+    const data = await GitHubSync.load();
+    if (data) refresh();
+    else { GitHubSync.status('saved'); refresh(); }
+  } catch(e) {
+    console.error('Token save error:', e);
+    GitHubSync.status('error');
+    refresh();
+  }
+}
+
+// Close token modal on backdrop click
+document.getElementById('tokenModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('tokenModal'))
+    document.getElementById('tokenModal').style.display = 'none';
+});
+</script>
+
+
+<script>
+// ── BUILD TRACKER ─────────────────────────────────────────────
+const SERVER_URL = 'http://localhost:7845';
+let _buildSetId = null;
+
+function promptBuildTracker(setId, setName) {
+  _buildSetId = setId;
+  document.getElementById('buildSetImg').src = `https://img.bricklink.com/ItemImage/SN/0/${setId}-1.png`;
+  document.getElementById('buildSetName').textContent = setName;
+  document.getElementById('buildSetId').textContent = `Set #${setId}`;
+  document.getElementById('buildModal').style.display = 'flex';
+  document.getElementById('buildProgress').style.display = 'none';
+  document.getElementById('buildLog').textContent = '';
+  document.getElementById('buildBar').style.width = '0%';
+  document.getElementById('buildBtn').textContent = 'Yes, Build It';
+  document.getElementById('buildBtn').disabled = true;
+  checkServer();
+}
+
+function closeBuildModal() {
+  document.getElementById('buildModal').style.display = 'none';
+  _buildSetId = null;
+}
+
+async function checkServer() {
+  const el = document.getElementById('serverStatus');
+  try {
+    const r = await fetch(SERVER_URL + '/ping', {signal: AbortSignal.timeout(2000)});
+    if (r.ok) {
+      el.innerHTML = '✓ Local server is running — ready to build!';
+      el.style.cssText = 'font-size:11px;margin-bottom:16px;padding:8px 12px;border-radius:6px;background:rgba(100,255,218,0.1);border:1px solid rgba(100,255,218,0.3);color:#64ffda';
+      document.getElementById('buildBtn').disabled = false;
+      return true;
+    }
+  } catch(e) {}
+  el.innerHTML = 'Server not running — open terminal in your Lego folder and run: <strong style="color:#FFD700">python make_tracker.py</strong>';
+  el.style.cssText = 'font-size:11px;margin-bottom:16px;padding:8px 12px;border-radius:6px;background:rgba(255,83,112,0.1);border:1px solid rgba(255,83,112,0.3);color:#ff5370';
+  document.getElementById('buildBtn').disabled = true;
+  return false;
+}
+
+async function startBuild() {
+  if (!_buildSetId) return;
+  document.getElementById('buildBtn').disabled = true;
+  document.getElementById('buildBtn').textContent = 'Building...';
+  document.getElementById('buildProgress').style.display = 'block';
+  const log = document.getElementById('buildLog');
+  const bar = document.getElementById('buildBar');
+  log.innerHTML = `Fetching parts for set ${_buildSetId} from Rebrickable...`;
+  bar.style.width = '20%';
+
+  try {
+    const r = await fetch(SERVER_URL + '/build', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({sets: [_buildSetId]})
+    });
+    const results = await r.json();
+    bar.style.width = '100%';
+    const res = results[0];
+    if (res && res.ok) {
+      log.innerHTML = `<span style="color:#64ffda">✓ Done! ${res.lots} lots fetched and published.</span>`;
+      document.getElementById('buildBtn').textContent = '✓ Done!';
+      // Update collection tracker link
+      const s = collection.find(x => x.id === res.setId);
+      if (s) { s.tracker = res.filename; saveCollection(); }
+      setTimeout(() => { refresh(); closeBuildModal(); }, 2000);
+    } else {
+      log.innerHTML = `<span style="color:#ff5370">✗ ${res?.error || 'Build failed'}</span>`;
+      document.getElementById('buildBtn').textContent = 'Try Again';
+      document.getElementById('buildBtn').disabled = false;
+    }
+  } catch(e) {
+    log.innerHTML = '<span style="color:#ff5370">✗ Could not reach local server. Is make_tracker.py running?</span>';
+    document.getElementById('buildBtn').textContent = 'Try Again';
+    document.getElementById('buildBtn').disabled = false;
+    bar.style.width = '0%';
+  }
+}
+
+document.getElementById('buildModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('buildModal')) closeBuildModal();
+});
+</script>
+</body>
+</html>

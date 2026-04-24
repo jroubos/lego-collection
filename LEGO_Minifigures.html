@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minifigures — My LEGO Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1117;--surface:#1a1d27;--surface2:#22263a;--border:#2d3250;--accent:#FFD700;--accent2:#FF6B35;--text:#e8eaf6;--text2:#8892b0;--green:#64ffda;--red:#ff5370;--r:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+.hero{background:linear-gradient(135deg,#0f1117 0%,#1a1d27 50%,#0f1117 100%);border-bottom:1px solid var(--border);padding:28px 40px 24px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,215,0,0.06) 0%,transparent 70%);pointer-events:none;}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.5px;margin-bottom:14px;transition:color 0.2s;}
+.back-link:hover{color:var(--accent);}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:4px;background:linear-gradient(90deg,#FFD700,#FF6B35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;}
+.hero-sub{color:var(--text2);font-size:12px;letter-spacing:1px;margin-bottom:20px;}
+.stats-row{display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:11px 18px;min-width:110px;position:relative;overflow:hidden;}
+.stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.stat-card .big{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--accent);line-height:1;}
+.stat-card .lbl{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px;margin-top:2px;}
+
+.controls-bar{padding:12px 40px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:100;}
+.sw{position:relative;flex:1;min-width:160px;max-width:260px;}
+.sw input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 11px 7px 30px;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;}
+.sw input:focus{border-color:var(--accent);}
+.si{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:12px;}
+select{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:7px 11px;font-size:12px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;}
+.pill{border:1px solid var(--border);background:transparent;color:var(--text2);border-radius:20px;padding:5px 13px;font-size:11px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:700;transition:all 0.2s;}
+.pill.active{background:var(--accent);color:#000;border-color:var(--accent);}
+.pill:hover:not(.active){border-color:var(--accent);color:var(--accent);}
+.rc{margin-left:auto;font-size:11px;color:var(--text2);white-space:nowrap;}
+
+.content{padding:24px 40px 80px;}
+
+/* SET GROUPS */
+.set-group{margin-bottom:32px;}
+.set-group-header{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.set-group-img{width:60px;height:45px;object-fit:contain;background:#111520;border-radius:6px;border:1px solid var(--border);flex-shrink:0;}
+.set-group-info{flex:1;}
+.set-group-name{font-size:15px;font-weight:700;color:var(--text);}
+.set-group-meta{font-size:11px;color:var(--text2);margin-top:2px;}
+.set-group-progress{font-size:11px;font-weight:700;margin-left:auto;white-space:nowrap;}
+.set-group.hidden{display:none;}
+
+/* FIG GRID */
+.figs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
+
+/* FIG CARD */
+.fig-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:transform 0.2s,border-color 0.2s;position:relative;cursor:pointer;}
+.fig-card:hover{transform:translateY(-2px);border-color:#3d4270;}
+.fig-card.found{border-color:rgba(100,255,218,0.3);background:rgba(100,255,218,0.04);}
+.fig-card.found .fig-check{background:#64ffda;color:#000;}
+.fig-card.unknown{opacity:0.6;cursor:default;}
+
+.fig-img-wrap{width:100%;height:100px;background:#111520;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.fig-img-wrap img{width:100%;height:100%;object-fit:contain;padding:6px;transition:transform 0.3s;}
+.fig-card:hover .fig-img-wrap img{transform:scale(1.08);}
+.fig-placeholder{font-size:32px;opacity:0.3;}
+
+.fig-check{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;border:2px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;transition:all 0.2s;}
+
+.fig-body{padding:8px 10px;}
+.fig-name{font-size:10px;font-weight:600;color:var(--text);line-height:1.3;}
+.fig-set{font-size:9px;color:var(--text2);margin-top:2px;}
+
+/* UNTRACKED BANNER */
+.untracked-note{background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.2);border-radius:8px;padding:10px 14px;font-size:11px;color:#FFD700;margin-bottom:16px;}
+
+@media(max-width:640px){
+  .hero{padding:20px 16px;} .hero-title{font-size:36px;}
+  .controls-bar{padding:10px 16px;} .content{padding:14px 14px 60px;}
+  .figs-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="LEGO_Collection_Dashboard.html" class="back-link">← Back to Collection</a>
+  <div class="hero-title">Minifigures</div>
+  <div class="hero-sub">All minifigures across your collection</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="big" id="statTotal">140</div><div class="lbl">Total Figs</div></div>
+    <div class="stat-card"><div class="big" id="statFound">—</div><div class="lbl">Confirmed Found</div></div>
+    <div class="stat-card"><div class="big" id="statSets">—</div><div class="lbl">Sets with Figs</div></div>
+    <div class="stat-card"><div class="big" id="statUntracked">—</div><div class="lbl">Untracked</div></div>
+  </div>
+</div>
+
+<div class="controls-bar">
+  <div class="sw"><span class="si">🔍</span><input type="text" id="searchBox" placeholder="Search minifigures..." oninput="renderAll()"></div>
+  <select id="themeFilter" onchange="renderAll()"><option value="">All Themes</option></select>
+  <button class="pill active" id="pill-all" onclick="setFilter('all')">All</button>
+  <button class="pill" id="pill-found" onclick="setFilter('found')">Found</button>
+  <button class="pill" id="pill-missing" onclick="setFilter('missing')">Missing/Unknown</button>
+  <span class="rc" id="rc"></span>
+</div>
+
+<div class="content" id="mainContent"></div>
+
+<script>
+const TRACKED_FIGS = [{"setId": "6264", "setName": "Forbidden Cove", "partNo": "pi069", "desc": "Islander King with Black Hair", "needed": 1, "row": 0, "trackerKey": "6264tracker"}, {"setId": "6264", "setName": "Forbidden Cove", "partNo": "pi079", "desc": "Islander Male with Quiver", "needed": 1, "row": 1, "trackerKey": "6264tracker"}, {"setId": "6264", "setName": "Forbidden Cove", "partNo": "pi029", "desc": "Pirate Red/Black Stripes Shirt, Green Legs, Blue Bandana", "needed": 1, "row": 2, "trackerKey": "6264tracker"}, {"setId": "6264", "setName": "Forbidden Cove", "partNo": "pi022", "desc": "Pirate Shirt with Knife, Peg Leg, Black Pirate Hat with Skull", "needed": 1, "row": 3, "trackerKey": "6264tracker"}, {"setId": "6264", "setName": "Forbidden Cove", "partNo": "3626", "desc": "Minifigure Head (Plain)", "needed": 1, "row": 16, "trackerKey": "6264tracker"}, {"setId": "6264", "setName": "Forbidden Cove", "partNo": "6030", "desc": "Minifigure Headgear Mask Islander", "needed": 1, "row": 83, "trackerKey": "6264tracker"}, {"setId": "6939", "setName": "Saucer Centurion", "partNo": "sp039", "desc": "Spyrius Minifigure", "needed": 1, "row": 0, "trackerKey": "6939tracker"}, {"setId": "6939", "setName": "Saucer Centurion", "partNo": "sp041", "desc": "Spyrius Droid (Major Kartofski)", "needed": 1, "row": 1, "trackerKey": "6939tracker"}, {"setId": "6939", "setName": "Saucer Centurion", "partNo": "2516", "desc": "Minifigure Utensil Chainsaw Body with Handles and Studs", "needed": 1, "row": 15, "trackerKey": "6939tracker"}, {"setId": "6544", "setName": "Shuttle Transcon 2", "partNo": "973px53c01", "desc": "Astronaut (without air tanks)", "needed": 1, "row": 0, "trackerKey": "6544tracker"}, {"setId": "6544", "setName": "Shuttle Transcon 2", "partNo": "973px52c01", "desc": "Launch Command Ground Crew", "needed": 2, "row": 1, "trackerKey": "6544tracker"}, {"setId": "6544", "setName": "Shuttle Transcon 2", "partNo": "3962b", "desc": "Minifigure Utensil Radio (Walkie-Talkie)", "needed": 1, "row": 11, "trackerKey": "6544tracker"}, {"setId": "6544", "setName": "Shuttle Transcon 2", "partNo": "3838", "desc": "Minifigure Air Tanks", "needed": 1, "row": 112, "trackerKey": "6544tracker"}];
+const ALL_SETS = [{"id": "76308", "name": "Spider-Man Mech vs. Anti-Venom", "theme": "Marvel", "year": 2025, "figs": 2}, {"id": "60430", "name": "Interstellar Spaceship", "theme": "City", "year": 2024, "figs": 3}, {"id": "76945", "name": "Atrociraptor Dinosaur: Bike Chase", "theme": "Jurassic World", "year": 2022, "figs": 3}, {"id": "76916", "name": "Porsche 963", "theme": "Speed Champions", "year": 2023, "figs": 2}, {"id": "75300", "name": "Imperial TIE Fighter", "theme": "Star Wars", "year": 2021, "figs": 2}, {"id": "76991", "name": "Tails Workshop and Tornado Plane", "theme": "Sonic", "year": 2023, "figs": 3}, {"id": "76909", "name": "Mercedes-AMG F1 W12 & Project One", "theme": "Speed Champions", "year": 2022, "figs": 2}, {"id": "76332", "name": "The Batman Batmobile", "theme": "DC Batman", "year": 2026, "figs": 1}, {"id": "30732", "name": "Alex's Campfire Conflict", "theme": "Minecraft", "year": 2026, "figs": 2}, {"id": "71853", "name": "Jay's Dragon Mech Fight", "theme": "Ninjago", "year": 2026, "figs": 2}, {"id": "71851", "name": "Kai's Dragon Mech Battle Pack", "theme": "Ninjago", "year": 2026, "figs": 3}, {"id": "71838", "name": "Kai's Motorcycle Speed Race", "theme": "Ninjago", "year": 2025, "figs": 2}, {"id": "76335", "name": "Spider-Man vs. Ghost Rider Motorcycle", "theme": "Marvel", "year": 2026, "figs": 2}, {"id": "11206", "name": "Spidey on his Motorcycle vs. Rhino", "theme": "Marvel", "year": 2026, "figs": 2}, {"id": "60413", "name": "Fire Rescue Plane", "theme": "City", "year": 2024, "figs": 3}, {"id": "6511", "name": "Rescue Runabout", "theme": "Town", "year": 1992, "figs": 1}, {"id": "1970", "name": "Pirates Gun Cart", "theme": "Pirates", "year": 1993, "figs": 1}, {"id": "5918", "name": "Scorpion Tracker", "theme": "Adventurers", "year": 1998, "figs": 2}, {"id": "6045", "name": "Ninja Surprise", "theme": "Castle", "year": 1998, "figs": 5}, {"id": "6516", "name": "Moon Walker", "theme": "Town", "year": 1995, "figs": 1}, {"id": "6445", "name": "Emergency Evac", "theme": "Town", "year": 1998, "figs": 3}, {"id": "6236", "name": "King Kahuka", "theme": "Pirates", "year": 1994, "figs": 2}, {"id": "6057", "name": "Sea Serpent", "theme": "Castle", "year": 1992, "figs": 5}, {"id": "6834", "name": "Celestial Sled", "theme": "Space", "year": 1993, "figs": 1}, {"id": "6889", "name": "Recon Robot", "theme": "Space", "year": 1994, "figs": 2}, {"id": "7130", "name": "Snowspeeder", "theme": "Star Wars", "year": 1999, "figs": 2}, {"id": "6264", "name": "Forbidden Cove", "theme": "Pirates", "year": 1994, "figs": 4}, {"id": "6596", "name": "Wave Master", "theme": "Town", "year": 1995, "figs": 2}, {"id": "6336", "name": "Launch Response Unit", "theme": "Town", "year": 1995, "figs": 3}, {"id": "6490", "name": "Amazon Crossing", "theme": "Town", "year": 1997, "figs": 3}, {"id": "6254", "name": "Rocky Reef", "theme": "Pirates", "year": 1995, "figs": 3}, {"id": "6897", "name": "Rebel Hunter", "theme": "Space", "year": 1992, "figs": 2}, {"id": "6520", "name": "Mobile Outpost", "theme": "Town", "year": 2000, "figs": 3}, {"id": "6573", "name": "Arctic Expedition", "theme": "Town", "year": 2000, "figs": 2}, {"id": "6835", "name": "Saucer Scout", "theme": "Space", "year": 1994, "figs": 1}, {"id": "6665", "name": "River Runners", "theme": "Town", "year": 1994, "figs": 2}, {"id": "1959", "name": "Ultra-Light", "theme": "Town", "year": 1993, "figs": 1}, {"id": "6033", "name": "Treasure Transport", "theme": "Castle", "year": 1998, "figs": 2}, {"id": "5902", "name": "River Raft", "theme": "Adventurers", "year": 1999, "figs": 1}, {"id": "5938", "name": "Oasis Ambush", "theme": "Adventurers", "year": 1998, "figs": 3}, {"id": "6879", "name": "Blizzard Baron", "theme": "Space", "year": 1993, "figs": 1}, {"id": "5928", "name": "Bi-Wing Baron", "theme": "Adventurers", "year": 1998, "figs": 2}, {"id": "1610", "name": "Police Car", "theme": "Town", "year": 1991, "figs": 2}, {"id": "6544", "name": "Shuttle Transcon 2", "theme": "Town", "year": 1995, "figs": 3}, {"id": "6558", "name": "Shark Cage Cove", "theme": "Town", "year": 1997, "figs": 3}, {"id": "6584", "name": "Extreme Team Challenge", "theme": "Town", "year": 1998, "figs": 4}, {"id": "6056", "name": "Dragon Wagon", "theme": "Castle", "year": 1993, "figs": 3}, {"id": "6155", "name": "Deep Sea Predator", "theme": "Aquazone", "year": 1995, "figs": 2}, {"id": "1821", "name": "Rally Racers", "theme": "Town", "year": 1996, "figs": 2}, {"id": "1723", "name": "Castle/Pirates Value Pack", "theme": "Pirates", "year": 1994, "figs": 4}, {"id": "6442", "name": "Sting Ray Explorer", "theme": "Town", "year": 1997, "figs": 2}, {"id": "7131", "name": "Anakin's Podracer", "theme": "Star Wars", "year": 1999, "figs": 2}, {"id": "6342", "name": "Beach Rescue Chopper", "theme": "Town", "year": 1993, "figs": 2}, {"id": "6042", "name": "Dungeon Hunters", "theme": "Castle", "year": 1990, "figs": 4}, {"id": "6815", "name": "Hovertron", "theme": "Space", "year": 1996, "figs": 1}, {"id": "6341", "name": "Gas N Go Flyer", "theme": "Town", "year": 1994, "figs": 2}, {"id": "6939", "name": "Saucer Centurion", "theme": "Space", "year": 1994, "figs": 2}, {"id": "1958", "name": "Windsurfer", "theme": "Town", "year": 1993, "figs": 1}, {"id": "1971", "name": "Battering Ram", "theme": "Castle", "year": 1993, "figs": 2}, {"id": "1969", "name": "Mini Robot", "theme": "Space", "year": 1993, "figs": 1}, {"id": "6125", "name": "Sea Sprint 9", "theme": "Aquazone", "year": 1995, "figs": 1}, {"id": "6467", "name": "Power Pitstop", "theme": "Town", "year": 1999, "figs": 2}, {"id": "6555", "name": "Sea Hunter", "theme": "Town", "year": 1997, "figs": 1}];
+const THEME_COLORS = {"Marvel": "#E23636", "Star Wars": "#FFE81F", "City": "#006DB7", "Jurassic World": "#5B8A00", "Technic": "#E3000B", "Speed Champions": "#FF6B00", "Ideas": "#00A650", "Icons Botanical": "#8DC63F", "Sonic": "#0066CC", "Creator": "#FF8C00", "Architecture": "#888888", "DC Batman": "#FFD700", "Minecraft": "#7CB342", "Ninjago": "#CC0000", "Pirates": "#8B4513", "Castle": "#6B4C9A", "Town": "#1565C0", "Space": "#0D47A1", "Adventurers": "#BF6900", "Aquazone": "#00838F"};
+
+// This replaces the entire script section in the minifigs page
+
+const TRACKER_KEYS = {'6264':'6264tracker','6939':'6939tracker','6544':'6544tracker'};
+const TRACKED_ORDER = ['6264','6939','6544'];
+let filterMode = 'all';
+
+function getState(key) {
+  try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) { return {}; }
+}
+
+function render() {
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  const theme = document.getElementById('themeFilter').value;
+
+  const sorted = [...ALL_SETS].sort((a,b) => {
+    const ai = TRACKED_ORDER.indexOf(a.id), bi = TRACKED_ORDER.indexOf(b.id);
+    if (ai>=0 && bi<0) return -1;
+    if (ai<0 && bi>=0) return 1;
+    if (ai>=0 && bi>=0) return ai-bi;
+    return b.year - a.year;
+  });
+
+  let totalFound=0, totalUnknown=0, setsShown=0;
+  let html = '';
+
+  sorted.forEach(set => {
+    if (theme && set.theme !== theme) return;
+    const tkey = TRACKER_KEYS[set.id];
+    const state = tkey ? getState(tkey) : {};
+    const isTracked = !!tkey;
+    const color = THEME_COLORS[set.theme] || '#555';
+
+    const figs = isTracked
+      ? TRACKED_FIGS.filter(f => f.setId === set.id)
+      : Array.from({length:set.figs},(_,i)=>({setId:set.id,setName:set.name,partNo:null,desc:`Minifigure ${i+1}`,needed:1,row:null,trackerKey:null}));
+
+    const figsWithStatus = figs.map(f => {
+      if (!f.trackerKey) return {...f, found:null};
+      const val = parseInt(state[String(f.row)] ?? 0);
+      return {...f, found: val >= f.needed};
+    });
+
+    const visible = figsWithStatus.filter(f => {
+      if (q && !(f.desc+' '+set.name).toLowerCase().includes(q)) return false;
+      if (filterMode === 'found' && f.found !== true) return false;
+      if (filterMode === 'missing' && f.found === true) return false;
+      return true;
+    });
+
+    if (visible.length === 0) return;
+    setsShown++;
+
+    const setFoundCount = figsWithStatus.filter(f=>f.found===true).length;
+    if (isTracked) totalFound += setFoundCount;
+    else totalUnknown += set.figs;
+
+    const progText = isTracked
+      ? `<span style="color:${setFoundCount===figs.length?'#64ffda':'var(--text2)'}">${setFoundCount}/${figs.length} found</span>`
+      : `<span style="color:#FF6B35">${set.figs} fig${set.figs>1?'s':''} — tracker needed</span>`;
+
+    const figCards = visible.map(f => {
+      const foundClass = f.found===true ? 'found' : '';
+      const clickable = f.trackerKey ? 'clickable' : '';
+      const onclick = f.trackerKey ? `onclick="toggle('${f.trackerKey}',${f.row},${f.needed})"` : '';
+      const imgSrc = f.partNo ? `https://img.bricklink.com/ItemImage/MN/0/${f.partNo}.png` : '';
+      return `<div class="fig-card ${foundClass} ${clickable}" ${onclick}>
+        <div class="fig-img-wrap">
+          ${imgSrc
+            ? `<img src="${imgSrc}" alt="${f.desc}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=fig-placeholder>👤</div>'">`
+            : '<div class="fig-placeholder">👤</div>'
+          }
+          <div class="fig-check" style="${f.found===true?'background:#64ffda;border-color:#64ffda;color:#000':'border-color:#2d3250;color:transparent'}">✓</div>
+        </div>
+        <div class="fig-body">
+          <div class="fig-name">${f.desc}</div>
+          ${f.partNo?`<div class="fig-set"><a href="https://www.bricklink.com/v2/catalog/catalogitem.page?M=${f.partNo}" target="_blank" onclick="event.stopPropagation()" style="color:var(--text2);text-decoration:none">${f.partNo}</a></div>`:''}
+        </div>
+      </div>`;
+    }).join('');
+
+    html += `<div class="set-group">
+      <div class="set-group-header">
+        <img class="set-group-img" src="https://img.bricklink.com/ItemImage/SN/0/${set.id}-1.png" alt="${set.name}" onerror="this.style.display='none'">
+        <div class="set-group-info">
+          <div class="set-group-name">#${set.id} — ${set.name}</div>
+          <div class="set-group-meta"><span style="color:${color};font-weight:700">${set.theme}</span> · ${set.year}</div>
+        </div>
+        <div class="set-group-progress">${progText}</div>
+      </div>
+      ${!isTracked?'<div class="untracked-note">⚠ No tracker yet — build a tracker for this set to track individual figs.</div>':''}
+      <div class="figs-grid">${figCards}</div>
+    </div>`;
+  });
+
+  document.getElementById('mainContent').innerHTML = html || '<div style="text-align:center;padding:60px;color:var(--text2)">No minifigures match your filters</div>';
+  document.getElementById('statFound').textContent = totalFound || '—';
+  document.getElementById('statSets').textContent = setsShown;
+  document.getElementById('statUntracked').textContent = totalUnknown || '—';
+  document.getElementById('rc').textContent = setsShown + ' sets';
+}
+
+function toggle(key, row, needed) {
+  const state = getState(key);
+  const cur = parseInt(state[String(row)] ?? 0);
+  state[String(row)] = cur >= needed ? '0' : String(needed);
+  localStorage.setItem(key, JSON.stringify(state));
+  render();
+}
+
+function buildThemeFilter() {
+  const themes = [...new Set(ALL_SETS.map(s=>s.theme))].sort();
+  document.getElementById('themeFilter').innerHTML = '<option value="">All Themes</option>' +
+    themes.map(t=>`<option>${t}</option>`).join('');
+}
+
+// Filter buttons
+document.getElementById('pill-all').addEventListener('click', ()=>{ filterMode='all'; ['all','found','missing'].forEach(x=>document.getElementById('pill-'+x).classList.toggle('active',x==='all')); render(); });
+document.getElementById('pill-found').addEventListener('click', ()=>{ filterMode='found'; ['all','found','missing'].forEach(x=>document.getElementById('pill-'+x).classList.toggle('active',x==='found')); render(); });
+document.getElementById('pill-missing').addEventListener('click', ()=>{ filterMode='missing'; ['all','found','missing'].forEach(x=>document.getElementById('pill-'+x).classList.toggle('active',x==='missing')); render(); });
+document.getElementById('searchBox').addEventListener('input', render);
+document.getElementById('themeFilter').addEventListener('change', render);
+
+// GitHub sync
+const GH = {owner:'jroubos',repo:'lego-collection',file:'data.json',branch:'main',get token(){return localStorage.getItem('gh_token')||'';}};
+
+function setSS(s) {
+  const el=document.getElementById('syncStatus');
+  if(!el) return;
+  const m={loading:['↓ Loading…','#FFD700'],ok:['✓ Loaded','#64ffda'],err:['✕ Error','#ff5370'],none:['⚠ Set token','#FF6B35']};
+  const[t,c]=m[s]||['● —','#8892b0'];
+  el.textContent=t; el.style.color=c;
+}
+
+async function loadFromGH() {
+  if (!GH.token) { setSS('none'); return; }
+  setSS('loading');
+  try {
+    const r=await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${GH.file}?ref=${GH.branch}&t=${Date.now()}`,
+      {headers:{Authorization:`token ${GH.token}`,Accept:'application/vnd.github.v3+json'}});
+    if(!r.ok){setSS('err');return;}
+    const d=await r.json();
+    const content=JSON.parse(atob(d.content.replace(/\n/g,'')));
+    if(content.trackers) Object.entries(content.trackers).forEach(([k,v])=>{
+      if(v&&Object.keys(v).length>0) localStorage.setItem(k,JSON.stringify(v));
+    });
+    setSS('ok');
+    render();
+  } catch(e) { setSS('err'); }
+}
+
+function promptToken() {
+  const t=prompt('Enter your GitHub Personal Access Token:',GH.token);
+  if(t&&t.trim()){ localStorage.setItem('gh_token',t.trim()); loadFromGH(); }
+}
+
+document.querySelector('[onclick="GitHubSync.load().then(()=>renderAll())"]')?.removeEventListener('click',null);
+
+// Override sync buttons
+document.querySelectorAll('button').forEach(btn => {
+  if(btn.textContent.includes('↓ Load')) btn.onclick = loadFromGH;
+  if(btn.textContent.includes('🔑')) btn.onclick = promptToken;
+});
+
+// Add clickable style
+const style = document.createElement('style');
+style.textContent = '.fig-card.clickable{cursor:pointer;} .fig-card.found{border-color:rgba(100,255,218,0.4)!important;background:rgba(100,255,218,0.05)!important;}';
+document.head.appendChild(style);
+
+// Init
+buildThemeFilter();
+render();
+if (GH.token) loadFromGH(); else setSS('none');
+
+</script>
+</body>
+</html>

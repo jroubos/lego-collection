@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 6264 — Forbidden Cove</title>
+</head>
+<body>
+<script>
+// ── SET DATA — edit parts here if needed ──────────────────────────────────
+const SET_DATA = {
+  "setId": "6264",
+  "setName": "Forbidden Cove",
+  "theme": "Pirates",
+  "year": 1994,
+  "storageKey": "6264tracker",
+  "parts": [
+    {
+      "row": 0,
+      "partNo": "pi069",
+      "colorId": "",
+      "colorName": "\u2014",
+      "desc": "Islander King with Black Hair MINIFIG",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 1,
+      "partNo": "pi079",
+      "colorId": "",
+      "colorName": "\u2014",
+      "desc": "Islander Male with Quiver MINIFIG",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 2,
+      "partNo": "pi029",
+      "colorId": "",
+      "colorName": "\u2014",
+      "desc": "Pirate Red/Black Stripes Shirt, Green Legs, Blue Bandana MINIFIG",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 3,
+      "partNo": "pi022",
+      "colorId": "",
+      "colorName": "\u2014",
+      "desc": "Pirate Shirt with Knife, Peg Leg, Black Pirate Hat with Skull MINIFIG",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 4,
+      "partNo": "multistk13",
+      "colorId": "0",
+      "colorName": "\u2014",
+      "desc": "Sticker Sheet for Sets 1788, 6256, 6264, 6278, 6292",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 5,
+      "partNo": "3957",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Antenna 4H - Round Top",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 6,
+      "partNo": "4490",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Arch 1 x 3",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 7,
+      "partNo": "3455",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Arch 1 x 6",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 8,
+      "partNo": "6108",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Arch 1 x 12 x 3",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 9,
+      "partNo": "3005",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 1",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 10,
+      "partNo": "3004",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 2",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 11,
+      "partNo": "3010",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 4",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 12,
+      "partNo": "6111",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 10",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 13,
+      "partNo": "2357",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 2 x 2 Corner",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 14,
+      "partNo": "2458",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick Modified 1 x 2 with Pin",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 15,
+      "partNo": "4589",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Cone 1 x 1",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 16,
+      "partNo": "3626",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Minifigure Head (Plain)",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 17,
+      "partNo": "3023",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 2",
+      "needed": 6,
+      "isMinifig": false
+    },
+    {
+      "row": 18,
+      "partNo": "3710",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 19,
+      "partNo": "3460",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 8",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 20,
+      "partNo": "4477",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 10",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 21,
+      "partNo": "3795",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 6",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 22,
+      "partNo": "3832",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 10",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 23,
+      "partNo": "3033",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 6 x 10",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 24,
+      "partNo": "4032",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Round 2 x 2 with Axle Hole",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 25,
+      "partNo": "4085c",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 1 with U Clip Thick (Vertical Grip)",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 26,
+      "partNo": "3794a",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 2 with 1 Stud without Groove (Jumper)",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 27,
+      "partNo": "4623a",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 2 with Bar Arm Up",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 28,
+      "partNo": "2540",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Modified 1 x 2 with Bar Handle on Side",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 29,
+      "partNo": "3040",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope 45 2 x 1",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 30,
+      "partNo": "4287",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope Inverted 33 3 x 1",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 31,
+      "partNo": "3665",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope Inverted 45 2 x 1",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 32,
+      "partNo": "3857",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Baseplate 16 x 32",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 33,
+      "partNo": "6020",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Bar 7 x 3 with 2 U Clips (Ladder)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 34,
+      "partNo": "2566",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Bar Palm Tree Top",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 35,
+      "partNo": "2551",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Boat 14 x 5 x 2 with Oarlocks",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 36,
+      "partNo": "4738a",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Treasure Chest Bottom with Slots in Back",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 37,
+      "partNo": "4739a",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Treasure Chest Lid Curved with Thick Hinge",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 38,
+      "partNo": "2542",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Oar / Paddle",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 39,
+      "partNo": "4499",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Bow, Longbow with Arrow Drawn",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 40,
+      "partNo": "2561",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Gun, Flintlock Musket",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 41,
+      "partNo": "2562",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Gun, Flintlock Pistol",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 42,
+      "partNo": "4497",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Pike / Spear with Round End",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 43,
+      "partNo": "2563",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Plant Tree Palm Base",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 44,
+      "partNo": "2536b",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Plant Tree Palm Trunk - Short Connector",
+      "needed": 7,
+      "isMinifig": false
+    },
+    {
+      "row": 45,
+      "partNo": "70501",
+      "colorId": "21",
+      "colorName": "Chrome Gold",
+      "desc": "Coins on Sprue (10, 20, 30, 40)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 46,
+      "partNo": "2530",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Sword, Cutlass with Small Hilt",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 47,
+      "partNo": "6083",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Rock Panel 3 x 8 x 7 Triangular (LURP)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 48,
+      "partNo": "6028",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Crocodile / Dragon Tail",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 49,
+      "partNo": "6027",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Crocodile / Dragon Upper Jaw",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 50,
+      "partNo": "6026",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Crocodile Body with 4 Bottom Teeth",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 51,
+      "partNo": "3062",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Brick Round 1 x 1",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 52,
+      "partNo": "2488",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Weapon Whip / Plant Vine",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 53,
+      "partNo": "2518",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Plant Tree Palm Leaf Large 10 x 5",
+      "needed": 7,
+      "isMinifig": false
+    },
+    {
+      "row": 54,
+      "partNo": "6148",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Plant Tree Palm Leaf Small 8 x 3",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 55,
+      "partNo": "4032",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Plate Round 2 x 2 with Axle Hole",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 56,
+      "partNo": "4490",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Arch 1 x 3",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 57,
+      "partNo": "6108",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Arch 1 x 12 x 3",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 58,
+      "partNo": "3005",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 1 x 1",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 59,
+      "partNo": "3004",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 1 x 2",
+      "needed": 5,
+      "isMinifig": false
+    },
+    {
+      "row": 60,
+      "partNo": "3010",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 1 x 4",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 61,
+      "partNo": "3003",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 2 x 2",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 62,
+      "partNo": "4070",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick Modified 1 x 1 with Headlight",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 63,
+      "partNo": "3023",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 2",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 64,
+      "partNo": "3623",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 3",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 65,
+      "partNo": "6019",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate Modified 1 x 1 with U Clip (Horizontal Grip)",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 66,
+      "partNo": "3794a",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate Modified 1 x 2 with 1 Stud without Groove (Jumper)",
+      "needed": 3,
+      "isMinifig": false
+    },
+    {
+      "row": 67,
+      "partNo": "3040",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope 45 2 x 1",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 68,
+      "partNo": "3039",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope 45 2 x 2",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 69,
+      "partNo": "4460a",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope 75 2 x 1 x 3 - Open Stud",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 70,
+      "partNo": "3665",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope Inverted 45 2 x 1",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 71,
+      "partNo": "2449",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope Inverted 75 2 x 1 x 3",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 72,
+      "partNo": "3701",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Brick 1 x 4 with Holes",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 73,
+      "partNo": "3069",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile 1 x 2",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 74,
+      "partNo": "2555",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile Modified 1 x 1 with Clip",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 75,
+      "partNo": "3455",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Arch 1 x 6",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 76,
+      "partNo": "2546p01",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Bird Parrot with Green/Yellow Feathers Pattern",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 77,
+      "partNo": "6021",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Boat Canoe",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 78,
+      "partNo": "3005",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick 1 x 1",
+      "needed": 12,
+      "isMinifig": false
+    },
+    {
+      "row": 79,
+      "partNo": "3004",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick 1 x 2",
+      "needed": 6,
+      "isMinifig": false
+    },
+    {
+      "row": 80,
+      "partNo": "2357",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick 2 x 2 Corner",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 81,
+      "partNo": "3001",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick 2 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 82,
+      "partNo": "3941",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick Round 2 x 2 with Axle Hole",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 83,
+      "partNo": "6030",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Minifigure Headgear Mask Islander",
+      "needed": 1,
+      "isMinifig": true
+    },
+    {
+      "row": 84,
+      "partNo": "2542",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Oar / Paddle",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 85,
+      "partNo": "3023",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 2",
+      "needed": 4,
+      "isMinifig": false
+    },
+    {
+      "row": 86,
+      "partNo": "3020",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 87,
+      "partNo": "6029a",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Cattle Horns",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 88,
+      "partNo": "2335p30",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Flag 2 x 2 Jolly Roger Pattern",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 89,
+      "partNo": "6029",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Plume Wheel Sprue Complete, 2 Cattle Horns and Feathered Headdress",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 90,
+      "partNo": "2586px10",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Shield Oval with Islanders Mask Pattern",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 91,
+      "partNo": "3068px9",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Tile 2 x 2 with Treasure Map Pattern",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 92,
+      "partNo": "4150px15",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Tile Round 2 x 2 with Black Animal Stripes Pattern",
+      "needed": 1,
+      "isMinifig": false
+    },
+    {
+      "row": 93,
+      "partNo": "3023",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Plate 1 x 2",
+      "needed": 8,
+      "isMinifig": false
+    },
+    {
+      "row": 94,
+      "partNo": "3710",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Plate 1 x 4",
+      "needed": 2,
+      "isMinifig": false
+    },
+    {
+      "row": 95,
+      "partNo": "3035",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Plate 4 x 8",
+      "needed": 2,
+      "isMinifig": false
+    }
+  ],
+  "themeColor": "#8B4513"
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
