@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 7131 — Anakin's Podracer</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "7131",
+  "setName": "Anakin's Podracer",
+  "theme": "Icons Botanical",
+  "year": 1999,
+  "storageKey": "7131tracker",
+  "parts": [
+    {
+      "partNo": "3002",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 2 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300226.jpg",
+      "row": 0
+    },
+    {
+      "partNo": "4070",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick Special 1 x 1 with Headlight",
+      "needed": 8,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/407026.jpg",
+      "row": 1
+    },
+    {
+      "partNo": "75c19",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hose Rigid 3mm D. 19L / 15.2cm",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6024272.jpg",
+      "row": 2
+    },
+    {
+      "partNo": "298c03",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Lever Small Base with Light Gray Lever",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/73667.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "298c03",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Lever Small Base with Light Gray Lever",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/73667.jpg",
+      "row": 4
+    },
+    {
+      "partNo": "3020",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302026.jpg",
+      "row": 5
+    },
+    {
+      "partNo": "2780",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Pin with Friction Ridges Lengthwise and Center Slots",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4121715.jpg",
+      "row": 6
+    },
+    {
+      "partNo": "3941",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Brick Round 2 x 2 with Axle Hole",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/614323.jpg",
+      "row": 7
+    },
+    {
+      "partNo": "3822pr0009",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Door 1 x 3 x 1 Left with SW Red on Silver Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/3822ps1.png",
+      "row": 8
+    },
+    {
+      "partNo": "3821pr0009",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Door 1 x 3 x 1 Right with SW Red on Silver Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/3821ps1.png",
+      "row": 9
+    },
+    {
+      "partNo": "4495a",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Flag 4 x 1 Wavy [First Wave Left]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/4495a.png",
+      "row": 10
+    },
+    {
+      "partNo": "4865a",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Panel 1 x 2 x 1 [Square Corners]",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/486523.jpg",
+      "row": 11
+    },
+    {
+      "partNo": "3623",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362323.jpg",
+      "row": 12
+    },
+    {
+      "partNo": "2420",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 2 x 2 Corner",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/242023.jpg",
+      "row": 13
+    },
+    {
+      "partNo": "6019",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate Special 1 x 1 with Clip Horizontal [Thick U Clip]",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/601923.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "3794a",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate Special 1 x 2 with 1 Stud without Groove (Jumper)",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/3794a.png",
+      "row": 15
+    },
+    {
+      "partNo": "4286",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Slope 33\u00b0 3 x 1",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/428623.jpg",
+      "row": 16
+    },
+    {
+      "partNo": "3298pr0042",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Slope 33\u00b0 3 x 2 with Crisscross Star Wars Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/3298ps0.png",
+      "row": 17
+    },
+    {
+      "partNo": "3048c",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Slope 45\u00b0 2 x 1 Triple with Ovoid Bottom Pin",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4174262.jpg",
+      "row": 18
+    },
+    {
+      "partNo": "3660",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Slope Inverted 45\u00b0 2 x 2 [Ovoid Bottom Pin, Bar-sized Stud Holes]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/366023.jpg",
+      "row": 19
+    },
+    {
+      "partNo": "4871",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Slope Inverted 45\u00b0 4 x 2 Double with 2 x 2 Recessed",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4189119.jpg",
+      "row": 20
+    },
+    {
+      "partNo": "4859",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Wedge Plate 3 x 4 without Stud Notches",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/4859.png",
+      "row": 21
+    },
+    {
+      "partNo": "30360",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Cylinder 3 x 6 x 2 2/3 Horizontal Hollow Studs",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4124487.jpg",
+      "row": 22
+    },
+    {
+      "partNo": "30170",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Headwear Accessory Glasses / Goggles",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4125235.jpg",
+      "row": 23
+    },
+    {
+      "partNo": "30383",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Hinge Plate 1 x 2 Locking with 1 Finger On Top",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4144572.jpg",
+      "row": 24
+    },
+    {
+      "partNo": "2412b",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Tile Special 1 x 2 Grille with Bottom Groove",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4124056.jpg",
+      "row": 25
+    },
+    {
+      "partNo": "3849",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Lance",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/384927.jpg",
+      "row": 26
+    },
+    {
+      "partNo": "3942c",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Cone 2 x 2 x 2, Open Stud",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/394202.jpg",
+      "row": 27
+    },
+    {
+      "partNo": "6231",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Panel 1 x 1 x 1 Corner",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4100379.jpg",
+      "row": 28
+    },
+    {
+      "partNo": "3710",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/371002.jpg",
+      "row": 29
+    },
+    {
+      "partNo": "3022",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 2 x 2",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302202.jpg",
+      "row": 30
+    },
+    {
+      "partNo": "6141",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate Round 1 x 1 with Solid Stud",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/614102.jpg",
+      "row": 31
+    },
+    {
+      "partNo": "6141",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate Round 1 x 1 with Solid Stud",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/614102.jpg",
+      "row": 32
+    },
+    {
+      "partNo": "30357",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate Round Corner 3 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4125238.jpg",
+      "row": 33
+    },
+    {
+      "partNo": "3794a",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate Special 1 x 2 with 1 Stud without Groove (Jumper)",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/379402.jpg",
+      "row": 34
+    },
+    {
+      "partNo": "3049c",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope 45\u00b0 2 x 1 Double / Inverted with Hollow Bottom",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4124485.jpg",
+      "row": 35
+    },
+    {
+      "partNo": "2555",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile Special 1 x 1 with Clip and Straight Tips",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/2555.png",
+      "row": 36
+    },
+    {
+      "partNo": "4855",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Wedge Sloped Inverted 4 x 4 Triple [2 Connections between Front Studs]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/485502.jpg",
+      "row": 37
+    },
+    {
+      "partNo": "6248",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Wheel Freestyle with 2 x 2 Studs and Pin Hole",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/6248.png",
+      "row": 38
+    },
+    {
+      "partNo": "3023",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 2",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302321.jpg",
+      "row": 39
+    },
+    {
+      "partNo": "3021",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 3",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302121.jpg",
+      "row": 40
+    },
+    {
+      "partNo": "2412b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Tile Special 1 x 2 Grille with Bottom Groove",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/241221.jpg",
+      "row": 41
+    },
+    {
+      "partNo": "3003",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Brick 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4114306.jpg",
+      "row": 42
+    },
+    {
+      "partNo": "3001",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Brick 2 x 4",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4114319.jpg",
+      "row": 43
+    },
+    {
+      "partNo": "30237a",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Brick Special 1 x 2 with Vertical Clip [Thick U Clip]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4125237.jpg",
+      "row": 44
+    },
+    {
+      "partNo": "4282",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Plate 2 x 16",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4124486.jpg",
+      "row": 45
+    },
+    {
+      "partNo": "3022",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Plate 2 x 2",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4114084.jpg",
+      "row": 46
+    },
+    {
+      "partNo": "3034",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Plate 2 x 8",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4113988.jpg",
+      "row": 47
+    },
+    {
+      "partNo": "30359a",
+      "colorId": "18",
+      "colorName": "Trans-Neon Orange",
+      "desc": "Bar 1 x 8 with Brick 1 x 2 Curved Top End (Original, No Axle Holder)",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4125233.jpg",
+      "row": 48
+    },
+    {
+      "partNo": "6141",
+      "colorId": "19",
+      "colorName": "Trans-Yellow",
+      "desc": "Plate Round 1 x 1 with Solid Stud",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/3005744.jpg",
+      "row": 49
+    },
+    {
+      "partNo": "3004",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 1 x 2",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300424.jpg",
+      "row": 50
+    },
+    {
+      "partNo": "30151a",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick Round 2 x 2 x 1 2/3 Dome Top, Blocked Open Stud",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4113950.jpg",
+      "row": 51
+    },
+    {
+      "partNo": "4495a",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Flag 4 x 1 Wavy [First Wave Left]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/14/4495a.png",
+      "row": 52
+    },
+    {
+      "partNo": "30407",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Hinge Plate 1 x 8 Locking with Angled Side Extensions, Rounded Plate Underside, 9 Teeth",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4124433.jpg",
+      "row": 53
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
