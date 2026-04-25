@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 6835 — Saucer Scout</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "6835",
+  "setName": "Saucer Scout",
+  "theme": "LEGO",
+  "year": 1994,
+  "storageKey": "6835tracker",
+  "parts": [
+    {
+      "partNo": "3005",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 1",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300526.jpg",
+      "row": 0
+    },
+    {
+      "partNo": "3475b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Engine - Smooth, Small 1 x 2 Side Plate [With Axle Holders]",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/347526.jpg",
+      "row": 1
+    },
+    {
+      "partNo": "3937",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Brick 1 x 2 Base",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/393726.jpg",
+      "row": 2
+    },
+    {
+      "partNo": "3022",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302226.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "2420",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2 Corner",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/242026.jpg",
+      "row": 4
+    },
+    {
+      "partNo": "6141",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Round 1 x 1 with Solid Stud",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/614126.jpg",
+      "row": 5
+    },
+    {
+      "partNo": "3068bpr0059",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tile 2 x 2 with Blue Screen, Silver and Red Panel Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/3068bp51.png",
+      "row": 6
+    },
+    {
+      "partNo": "2516",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tool Chainsaw / Drill Body",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6562846.jpg",
+      "row": 7
+    },
+    {
+      "partNo": "2419",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 3 x 6 Cut Corners",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/241926.jpg",
+      "row": 8
+    },
+    {
+      "partNo": "3023",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302302.jpg",
+      "row": 9
+    },
+    {
+      "partNo": "3039",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope 45\u00b0 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303902.jpg",
+      "row": 10
+    },
+    {
+      "partNo": "3068b",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile 2 x 2 with Groove",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/306802.jpg",
+      "row": 11
+    },
+    {
+      "partNo": "2412b",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile Special 1 x 2 Grille with Bottom Groove",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/241202.jpg",
+      "row": 12
+    },
+    {
+      "partNo": "2412b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Tile Special 1 x 2 Grille with Bottom Groove",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/241221.jpg",
+      "row": 13
+    },
+    {
+      "partNo": "4855",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Wedge Sloped Inverted 4 x 4 Triple [2 Connections between Front Studs]",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4258397.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "6141",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Plate Round 1 x 1 with Solid Stud",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/3005743.jpg",
+      "row": 15
+    },
+    {
+      "partNo": "6141",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Plate Round 1 x 1 with Solid Stud",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/3005743.jpg",
+      "row": 16
+    },
+    {
+      "partNo": "2418b",
+      "colorId": "14",
+      "colorName": "Trans-Dark Blue",
+      "desc": "Windscreen 6 x 6 Octagonal Canopy with Axle hole",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/33/2418b.png",
+      "row": 17
+    },
+    {
+      "partNo": "2447",
+      "colorId": "16",
+      "colorName": "Trans-Neon Green",
+      "desc": "Headwear Accessory Visor For Standard Helmet",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/244749.jpg",
+      "row": 18
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
