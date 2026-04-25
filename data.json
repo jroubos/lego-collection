@@ -55,7 +55,7 @@
       "year": 2019,
       "pieces": 1580,
       "minifigs": 0,
-      "tracker": null,
+      "tracker": "LEGO_42096_Tracker.html",
       "assembled": true
     },
     {
@@ -1162,5 +1162,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T06:10:58.275Z"
+  "lastSaved": "2026-04-25T06:11:13.874Z"
 }
