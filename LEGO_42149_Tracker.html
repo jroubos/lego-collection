@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 42149 — Monster Jam Dragon</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "42149",
+  "setName": "Monster Jam Dragon",
+  "theme": "Technic",
+  "year": 2023,
+  "storageKey": "42149tracker",
+  "parts": [
+    {
+      "partNo": "3708",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle 12",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/370826.jpg",
+      "row": 0
+    },
+    {
+      "partNo": "69819",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle and Pin Connector Perpendicular Double Split [Reinforced]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6349281.jpg",
+      "row": 1
+    },
+    {
+      "partNo": "63869",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle and Pin Connector Perpendicular Triple",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6007966.jpg",
+      "row": 2
+    },
+    {
+      "partNo": "41239",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 1 x 13 Thick",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4164422.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "60483",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 1 x 2 Thick with Pin Hole and Axle Hole",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4515185.jpg",
+      "row": 4
+    },
+    {
+      "partNo": "32063",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 1 x 6 Thin",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4114634.jpg",
+      "row": 5
+    },
+    {
+      "partNo": "6629",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 1 x 9 Bent (6 - 4) Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4112282.jpg",
+      "row": 6
+    },
+    {
+      "partNo": "40490",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 1 x 9 Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4645732.jpg",
+      "row": 7
+    },
+    {
+      "partNo": "32140",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 2 x 4 L-Shape Thick",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4120017.jpg",
+      "row": 8
+    },
+    {
+      "partNo": "60484",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 3 x 3 T-Shape Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4552347.jpg",
+      "row": 9
+    },
+    {
+      "partNo": "18654",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Pin Connector Round 1L [Beam]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6121485.jpg",
+      "row": 10
+    },
+    {
+      "partNo": "18654",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Pin Connector Round 1L [Beam]",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6121485.jpg",
+      "row": 11
+    },
+    {
+      "partNo": "65304",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Pin Long with Friction Ridges Lengthwise and Stop Bush [2 Lateral Holes, Small Pin Hole]",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6321745.jpg",
+      "row": 12
+    },
+    {
+      "partNo": "61332",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Pin with Friction Ridges Lengthwise with No Center Slots",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6279875.jpg",
+      "row": 13
+    },
+    {
+      "partNo": "61332",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Pin with Friction Ridges Lengthwise with No Center Slots",
+      "needed": 38,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6279875.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "55976",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tyre 56 x 26 Balloon",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4297209.jpg",
+      "row": 15
+    },
+    {
+      "partNo": "43093",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Technic Axle Pin with Friction Ridges Lengthwise",
+      "needed": 11,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4206482.jpg",
+      "row": 16
+    },
+    {
+      "partNo": "42924",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Technic Pin Long with Friction Ridges Lengthwise, 1 Center Slot",
+      "needed": 20,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6299413.jpg",
+      "row": 17
+    },
+    {
+      "partNo": "12799",
+      "colorId": "85",
+      "colorName": "Dark Bluish Gray",
+      "desc": "Pullback Motor 6 x 3 x 5",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6024100.jpg",
+      "row": 18
+    },
+    {
+      "partNo": "11214",
+      "colorId": "85",
+      "colorName": "Dark Bluish Gray",
+      "desc": "Technic Axle Pin 3L with Friction Ridges Lengthwise and 1L Axle",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6015356.jpg",
+      "row": 19
+    },
+    {
+      "partNo": "32525",
+      "colorId": "85",
+      "colorName": "Dark Bluish Gray",
+      "desc": "Technic Beam 1 x 11 Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4210755.jpg",
+      "row": 20
+    },
+    {
+      "partNo": "32524",
+      "colorId": "85",
+      "colorName": "Dark Bluish Gray",
+      "desc": "Technic Beam 1 x 7 Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4210752.jpg",
+      "row": 21
+    },
+    {
+      "partNo": "27940",
+      "colorId": "85",
+      "colorName": "Dark Bluish Gray",
+      "desc": "Technic Pin Connector Hub with 2 Axles",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6167281.jpg",
+      "row": 22
+    },
+    {
+      "partNo": "78c03",
+      "colorId": "95",
+      "colorName": "Flat Silver",
+      "desc": "Hose, Ribbed 7mm D. 3L / 2.4cm",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6116017.jpg",
+      "row": 23
+    },
+    {
+      "partNo": "32013",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Axle and Pin Connector Angled #1",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4114230.jpg",
+      "row": 24
+    },
+    {
+      "partNo": "32192",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Axle and Pin Connector Angled #4 - 135\u00b0",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4124030.jpg",
+      "row": 25
+    },
+    {
+      "partNo": "32278",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Beam 1 x 15 Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4163802.jpg",
+      "row": 26
+    },
+    {
+      "partNo": "2391",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Beam 1 x 7 Thick with Alternating Holes",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6408167.jpg",
+      "row": 27
+    },
+    {
+      "partNo": "6629",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Beam 1 x 9 Bent (6 - 4) Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4112283.jpg",
+      "row": 28
+    },
+    {
+      "partNo": "40490",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Beam 1 x 9 Thick",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6115618.jpg",
+      "row": 29
+    },
+    {
+      "partNo": "32526",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Beam 3 x 5 L-Shape Thick",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4143153.jpg",
+      "row": 30
+    },
+    {
+      "partNo": "64683",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing # 3 Small Smooth Long, Side A",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6013553.jpg",
+      "row": 31
+    },
+    {
+      "partNo": "64391",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing # 4 Small Smooth Long, Side B",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6013552.jpg",
+      "row": 32
+    },
+    {
+      "partNo": "2403",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing #10 Medium Triangle Smooth",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6408170.jpg",
+      "row": 33
+    },
+    {
+      "partNo": "11946",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing #21 5L Small Smooth, Side B",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6038627.jpg",
+      "row": 34
+    },
+    {
+      "partNo": "11947",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing #22 5L Small Smooth, Side A",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6038626.jpg",
+      "row": 35
+    },
+    {
+      "partNo": "2387",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing #7 3L Very Small Smooth, Side A",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6420780.jpg",
+      "row": 36
+    },
+    {
+      "partNo": "2389",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing #8 3L Very Small Smooth, Side B",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6420781.jpg",
+      "row": 37
+    },
+    {
+      "partNo": "2395",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Technic Panel Fairing #9 Medium Triangle Smooth",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6408169.jpg",
+      "row": 38
+    },
+    {
+      "partNo": "4519",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Axle 3",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4211815.jpg",
+      "row": 39
+    },
+    {
+      "partNo": "44294",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Axle 7",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4211805.jpg",
+      "row": 40
+    },
+    {
+      "partNo": "6536",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Axle and Pin Connector Perpendicular",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4211775.jpg",
+      "row": 41
+    },
+    {
+      "partNo": "32184",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Axle and Pin Connector Perpendicular 3L with Centre Pin Hole",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4211621.jpg",
+      "row": 42
+    },
+    {
+      "partNo": "3713",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Bush",
+      "needed": 5,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4211622.jpg",
+      "row": 43
+    },
+    {
+      "partNo": "3713",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Bush",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4211622.jpg",
+      "row": 44
+    },
+    {
+      "partNo": "32123b",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Bush 1/2 Smooth with Axle Hole Semi-Reduced",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6271165.jpg",
+      "row": 45
+    },
+    {
+      "partNo": "32123b",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Bush 1/2 Smooth with Axle Hole Semi-Reduced",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6271165.jpg",
+      "row": 46
+    },
+    {
+      "partNo": "62462",
+      "colorId": "86",
+      "colorName": "Light Bluish Gray",
+      "desc": "Technic Pin Connector Round [Slotted]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4526985.jpg",
+      "row": 47
+    },
+    {
+      "partNo": "56145",
+      "colorId": "4",
+      "colorName": "Orange",
+      "desc": "Wheel 30.4 x 20 without Pinholes, with Reinforced Rim",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4495219.jpg",
+      "row": 48
+    },
+    {
+      "partNo": "40379",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Animal Body Part / Plant, Tail / Claw / Horn / Branch / Tentacle, End Section",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4175016.jpg",
+      "row": 49
+    },
+    {
+      "partNo": "51274",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Animal Body Part / Plant, Tail / Neck / Branch / Trunk, Middle Section with Pin, Square Pin Hole",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6336922.jpg",
+      "row": 50
+    },
+    {
+      "partNo": "32062",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Axle 2 Notched",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4142865.jpg",
+      "row": 51
+    },
+    {
+      "partNo": "89678",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Pin 1/2 with Friction",
+      "needed": 10,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6378120.jpg",
+      "row": 52
+    },
+    {
+      "partNo": "89678",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Pin 1/2 with Friction",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6378120.jpg",
+      "row": 53
+    },
+    {
+      "partNo": "65487",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Pin Connector Hub with 1 Pin with Friction Ridges Lengthwise [Centered Friction Ridge]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6334505.jpg",
+      "row": 54
+    },
+    {
+      "partNo": "53451",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Animal Body Part, Barb / Claw / Tooth / Talon / Horn, Small",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6063671.jpg",
+      "row": 55
+    },
+    {
+      "partNo": "53451",
+      "colorId": "2",
+      "colorName": "Tan",
+      "desc": "Animal Body Part, Barb / Claw / Tooth / Talon / Horn, Small",
+      "needed": 12,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6063671.jpg",
+      "row": 56
+    },
+    {
+      "partNo": "32073",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Technic Axle 5",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6130008.jpg",
+      "row": 57
+    },
+    {
+      "partNo": "10102450",
+      "colorId": "0",
+      "colorName": "[No Color/Any Color]",
+      "desc": "Sticker Sheet for Set 42149-1",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/photos/9999/10102450-9999-a8f892df-3fdd-4ef0-997b-074f7668306e.jpg",
+      "row": 58
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
