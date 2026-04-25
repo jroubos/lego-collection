@@ -390,7 +390,7 @@
       "year": 2023,
       "pieces": 244,
       "minifigs": 0,
-      "tracker": null,
+      "tracker": "LEGO_42150_Tracker.html",
       "assembled": true
     },
     {
@@ -1162,5 +1162,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T06:08:16.064Z"
+  "lastSaved": "2026-04-25T06:09:12.888Z"
 }
