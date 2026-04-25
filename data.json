@@ -715,7 +715,7 @@
       "year": 1997,
       "pieces": 139,
       "minifigs": 2,
-      "tracker": null,
+      "tracker": "LEGO_6442_Tracker.html",
       "assembled": false
     },
     {
@@ -1162,5 +1162,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T06:05:53.605Z"
+  "lastSaved": "2026-04-25T06:05:58.843Z"
 }
