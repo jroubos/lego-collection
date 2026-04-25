@@ -458,7 +458,7 @@ function renderGrid() {
         </div>
         ${trackerBtn}
       </div>
-    </${cardClose}>`;
+    </div>`;
   }).join('');
 }
 
@@ -771,7 +771,13 @@ const GitHubSync={
 async function saveToken(){const t=document.getElementById('tokenInput').value.trim();if(!t)return;localStorage.setItem('gh_token',t);document.getElementById('tokenModal').style.display='none';const data=await GitHubSync.load();if(data)refresh();}
 document.getElementById('tokenModal')?.addEventListener('click',e=>{if(e.target===document.getElementById('tokenModal'))document.getElementById('tokenModal').style.display='none';});
 
-(async()=>{try{if(GITHUB_CONFIG.token){const data=await GitHubSync.load();if(data)refresh();}else{GitHubSync.status('no-token');}}catch(e){console.warn('sync:',e);}})();
+// Auto-load after page is ready
+window.addEventListener('load', async () => {
+  try {
+    if(GITHUB_CONFIG.token){const data=await GitHubSync.load();if(data && typeof refresh==='function')refresh();}
+    else{GitHubSync.status('no-token');}
+  } catch(e){console.warn('sync:',e);}
+});
 </script>
 </body>
 </html>
