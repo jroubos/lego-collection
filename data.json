@@ -743,7 +743,7 @@
       "year": 1990,
       "pieces": 94,
       "minifigs": 4,
-      "tracker": null
+      "tracker": "LEGO_6042_Tracker.html"
     },
     {
       "id": "6815",
@@ -1162,5 +1162,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T06:05:58.843Z"
+  "lastSaved": "2026-04-25T06:06:25.383Z"
 }
