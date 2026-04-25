@@ -439,7 +439,7 @@ function renderGrid() {
   const trackerBtn = tracker
       ? `<a href="${tracker}" class="tracker-btn">📋 Open Tracker</a>`
       : `<span class="no-tracker">No tracker yet</span>`;
-    return `<div class="set-card" data-id="${s.id}" data-theme="${s.theme}" data-era="${era}" data-tracked="${tracker?'yes':'no'}" data-name="${(s.name+' '+s.id+' '+s.theme).toLowerCase()}">
+    return `<div class="set-card" data-id="${s.id}" data-theme="${s.theme}" data-era="${era}" data-tracked="${tracker?'yes':'no'}" data-name="${(s.name+' '+s.id+' '+s.theme).toLowerCase()}" ${!tracker ? `onclick="promptBuildTracker('${s.id}','${s.name.replace(/'/g,String.fromCharCode(39))}')" style="cursor:pointer"` : ''}>
       <div class="set-img-wrap">
         <img src="https://img.bricklink.com/ItemImage/SN/0/${s.id}-1.png" alt="${s.name}" loading="lazy" onerror="this.parentElement.classList.add('no-img');this.style.display='none'">
         <div class="set-img-placeholder">#${s.id}</div>
