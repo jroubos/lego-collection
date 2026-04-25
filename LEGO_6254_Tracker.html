@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 6254 — Rocky Reef</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "6254",
+  "setName": "Rocky Reef",
+  "theme": "LEGO",
+  "year": 1995,
+  "storageKey": "6254tracker",
+  "parts": [
+    {
+      "partNo": "3022",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302226.jpg",
+      "row": 0
+    },
+    {
+      "partNo": "3334",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Baseplate 16 x 24",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/3334.png",
+      "row": 1
+    },
+    {
+      "partNo": "3023",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 2",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302323.jpg",
+      "row": 2
+    },
+    {
+      "partNo": "3020",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 2 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302023.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "2542",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Equipment Oar / Paddle",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4106940.jpg",
+      "row": 4
+    },
+    {
+      "partNo": "2563",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Plant, Palm Tree Base",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/6/2563a.png",
+      "row": 5
+    },
+    {
+      "partNo": "2536a",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Plant, Palm Tree Trunk - Long Indented Connector",
+      "needed": 5,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/6/2536a.png",
+      "row": 6
+    },
+    {
+      "partNo": "4738a",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Treasure Chest Bottom without Rear Slots",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/6/4738b.png",
+      "row": 7
+    },
+    {
+      "partNo": "4739a",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Treasure Chest Lid [Thick Hinge]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/473925.jpg",
+      "row": 8
+    },
+    {
+      "partNo": "2562",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Gun / Pistol Flintlock",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/256225.jpg",
+      "row": 9
+    },
+    {
+      "partNo": "57503",
+      "colorId": "21",
+      "colorName": "Chrome Gold",
+      "desc": "Money / Coin with \"10\" Sans-serif Type",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/334/70501a.png",
+      "row": 10
+    },
+    {
+      "partNo": "57504",
+      "colorId": "21",
+      "colorName": "Chrome Gold",
+      "desc": "Money / Coin with \"20\" Sans-serif Type",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/334/70501b.png",
+      "row": 11
+    },
+    {
+      "partNo": "57505",
+      "colorId": "21",
+      "colorName": "Chrome Gold",
+      "desc": "Money / Coin with \"30\" Sans-serif Type",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/334/70501c.png",
+      "row": 12
+    },
+    {
+      "partNo": "57506",
+      "colorId": "21",
+      "colorName": "Chrome Gold",
+      "desc": "Money / Coin with \"40\" Sans-serif Type",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/334/70501d.png",
+      "row": 13
+    },
+    {
+      "partNo": "6083",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Rock Panel Triangular 3 x 8 x 7 (aka LURP)",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/608327.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "3841",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Tool Pickaxe",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/384127.jpg",
+      "row": 15
+    },
+    {
+      "partNo": "2530",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Sword / Cutlass",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4106923.jpg",
+      "row": 16
+    },
+    {
+      "partNo": "2530",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Sword / Cutlass",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4106923.jpg",
+      "row": 17
+    },
+    {
+      "partNo": "2566",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Bar, 4 Top Bars, Palm Tree Top",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/256628.jpg",
+      "row": 18
+    },
+    {
+      "partNo": "3062b",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Brick Round 1 x 1 Open Stud",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/306228.jpg",
+      "row": 19
+    },
+    {
+      "partNo": "2423",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Plant, Leaves 4 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/242328.jpg",
+      "row": 20
+    },
+    {
+      "partNo": "6148",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Plant, Palm Leaf Small",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4160980.jpg",
+      "row": 21
+    },
+    {
+      "partNo": "4032a",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Plate Round 2 x 2 with Axle Hole Type 1 (+ Opening)",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/403228.jpg",
+      "row": 22
+    },
+    {
+      "partNo": "3004",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300402.jpg",
+      "row": 23
+    },
+    {
+      "partNo": "3008",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 1 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300802.jpg",
+      "row": 24
+    },
+    {
+      "partNo": "3002",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 2 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300202.jpg",
+      "row": 25
+    },
+    {
+      "partNo": "3001",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 2 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300102.jpg",
+      "row": 26
+    },
+    {
+      "partNo": "2456",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Brick 2 x 6",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/245602.jpg",
+      "row": 27
+    },
+    {
+      "partNo": "3024",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 1",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302402.jpg",
+      "row": 28
+    },
+    {
+      "partNo": "4477",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 10",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/447702.jpg",
+      "row": 29
+    },
+    {
+      "partNo": "3023",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302302.jpg",
+      "row": 30
+    },
+    {
+      "partNo": "3623",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 1 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362302.jpg",
+      "row": 31
+    },
+    {
+      "partNo": "3022",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302202.jpg",
+      "row": 32
+    },
+    {
+      "partNo": "3021",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Plate 2 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302102.jpg",
+      "row": 33
+    },
+    {
+      "partNo": "3298",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope 33\u00b0 3 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/329802.jpg",
+      "row": 34
+    },
+    {
+      "partNo": "3039",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Slope 45\u00b0 2 x 2",
+      "needed": 5,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303902.jpg",
+      "row": 35
+    },
+    {
+      "partNo": "3069b",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile 1 x 2 with Groove",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/306902.jpg",
+      "row": 36
+    },
+    {
+      "partNo": "2431",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile 1 x 4 with Groove",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/243102.jpg",
+      "row": 37
+    },
+    {
+      "partNo": "4162",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile 1 x 8 with Groove",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/416202.jpg",
+      "row": 38
+    },
+    {
+      "partNo": "3068b",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Tile 2 x 2 with Groove",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/306802.jpg",
+      "row": 39
+    },
+    {
+      "partNo": "3679",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Turntable 2 x 2 Plate - Top",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/3679.png",
+      "row": 40
+    },
+    {
+      "partNo": "2546pr0001",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Animal, Bird, Parrot with Coloured Feathers Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/2546p01.png",
+      "row": 41
+    },
+    {
+      "partNo": "2551",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Boat / Rowing Boat 14 x 5 x 2 with Oarlocks [2 Hollow Inside Studs]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/2551.png",
+      "row": 42
+    },
+    {
+      "partNo": "3794a",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate Special 1 x 2 with 1 Stud without Groove (Jumper)",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/3794a.png",
+      "row": 43
+    },
+    {
+      "partNo": "6265",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Arm Skeleton",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4142875.jpg",
+      "row": 44
+    },
+    {
+      "partNo": "3460",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Plate 1 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/346001.jpg",
+      "row": 45
+    },
+    {
+      "partNo": "3034",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Plate 2 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303401.jpg",
+      "row": 46
+    },
+    {
+      "partNo": "3068bpr0058",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Tile 2 x 2 with Blue and Yellow Map Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/15/3068bp30.png",
+      "row": 47
+    },
+    {
+      "partNo": "3005",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 1 x 1",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300524.jpg",
+      "row": 48
+    },
+    {
+      "partNo": "3004",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 1 x 2",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300424.jpg",
+      "row": 49
+    },
+    {
+      "partNo": "3622",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 1 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362224.jpg",
+      "row": 50
+    },
+    {
+      "partNo": "3010",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 1 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/301024.jpg",
+      "row": 51
+    },
+    {
+      "partNo": "3009",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 1 x 6",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300924.jpg",
+      "row": 52
+    },
+    {
+      "partNo": "3008",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 1 x 8",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300824.jpg",
+      "row": 53
+    },
+    {
+      "partNo": "3003",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300324.jpg",
+      "row": 54
+    },
+    {
+      "partNo": "2357",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 2 x 2 Corner",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/235724.jpg",
+      "row": 55
+    },
+    {
+      "partNo": "3002",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick 2 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300224.jpg",
+      "row": 56
+    },
+    {
+      "partNo": "3062b",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick Round 1 x 1 Open Stud",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/306224.jpg",
+      "row": 57
+    },
+    {
+      "partNo": "2577",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Brick Round Corner 4 x 4 Full Brick",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/257724.jpg",
+      "row": 58
+    },
+    {
+      "partNo": "3036",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Plate 6 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303624.jpg",
+      "row": 59
+    },
+    {
+      "partNo": "4286",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Slope 33\u00b0 3 x 1",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/428624.jpg",
+      "row": 60
+    },
+    {
+      "partNo": "3039",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Slope 45\u00b0 2 x 2",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303924.jpg",
+      "row": 61
+    },
+    {
+      "partNo": "4162",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Tile 1 x 8 with Groove",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/416224.jpg",
+      "row": 62
+    },
+    {
+      "partNo": "3680",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Turntable 2 x 2 Plate, Base",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/368024.jpg",
+      "row": 63
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
