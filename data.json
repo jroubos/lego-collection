@@ -54,7 +54,8 @@
       "year": 2019,
       "pieces": 1580,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42123",
@@ -63,7 +64,8 @@
       "year": 2021,
       "pieces": 830,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "76916",
@@ -99,7 +101,8 @@
       "year": 2023,
       "pieces": 905,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42153",
@@ -1131,5 +1134,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T05:50:24.446Z"
+  "lastSaved": "2026-04-25T05:50:42.617Z"
 }
