@@ -715,7 +715,8 @@
       "year": 1997,
       "pieces": 139,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": false
     },
     {
       "id": "7131",
@@ -1161,5 +1162,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T06:05:19.385Z"
+  "lastSaved": "2026-04-25T06:05:53.605Z"
 }
