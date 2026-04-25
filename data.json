@@ -83,7 +83,8 @@
       "year": 2023,
       "pieces": 1466,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42161",
@@ -92,7 +93,8 @@
       "year": 2023,
       "pieces": 806,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42151",
@@ -1134,5 +1136,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T05:50:42.617Z"
+  "lastSaved": "2026-04-25T05:50:47.232Z"
 }
