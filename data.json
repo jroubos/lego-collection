@@ -154,7 +154,8 @@
       "year": 2023,
       "pieces": 688,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "75300",
@@ -163,7 +164,8 @@
       "year": 2021,
       "pieces": 432,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "76991",
@@ -181,7 +183,8 @@
       "year": 2022,
       "pieces": 564,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "31144",
@@ -200,7 +203,8 @@
       "year": 2024,
       "pieces": 503,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "21034",
@@ -209,7 +213,8 @@
       "year": 2017,
       "pieces": 468,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42141",
@@ -218,7 +223,8 @@
       "year": 2022,
       "pieces": 1432,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "10309",
@@ -227,7 +233,8 @@
       "year": 2022,
       "pieces": 771,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "76332",
@@ -236,7 +243,8 @@
       "year": 2026,
       "pieces": 330,
       "minifigs": 1,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "30732",
@@ -1140,5 +1148,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T05:51:01.030Z"
+  "lastSaved": "2026-04-25T05:51:12.162Z"
 }
