@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 6155 — Deep Sea Predator</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "6155",
+  "setName": "Deep Sea Predator",
+  "theme": "LEGO",
+  "year": 1995,
+  "storageKey": "6155tracker",
+  "parts": [
+    {
+      "partNo": "4221",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Arm Grab Jaw",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/4221.png",
+      "row": 0
+    },
+    {
+      "partNo": "30014",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Arm Holder Brick 1 x 2 with 2 Horizontal Fingers",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/30014.png",
+      "row": 1
+    },
+    {
+      "partNo": "3612",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Arm Piece Straight with 2 and 3 Fingers",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/3612.png",
+      "row": 2
+    },
+    {
+      "partNo": "3659",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick Arch 1 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/365926.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "4315",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Vehicle Roof Holder 1 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/4315.png",
+      "row": 4
+    },
+    {
+      "partNo": "73092",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Magnet Cylindrical",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/73092.jpg",
+      "row": 5
+    },
+    {
+      "partNo": "2607",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Magnet Holder 2 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/260726.jpg",
+      "row": 6
+    },
+    {
+      "partNo": "59275",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Minifig Footwear Flipper [Thin]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/59275a.png",
+      "row": 7
+    },
+    {
+      "partNo": "3024",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 1",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302426.jpg",
+      "row": 8
+    },
+    {
+      "partNo": "3023",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 2",
+      "needed": 5,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302326.jpg",
+      "row": 9
+    },
+    {
+      "partNo": "3623",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362326.jpg",
+      "row": 10
+    },
+    {
+      "partNo": "3710",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 4",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/371026.jpg",
+      "row": 11
+    },
+    {
+      "partNo": "4282",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 16",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/428226.jpg",
+      "row": 12
+    },
+    {
+      "partNo": "3022",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302226.jpg",
+      "row": 13
+    },
+    {
+      "partNo": "3031",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 4 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4243819.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "4081b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 1 x 1 with Clip Light, Bar Hole [Thick Ring]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/408126.jpg",
+      "row": 15
+    },
+    {
+      "partNo": "6040",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Propeller Housing",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/6040.png",
+      "row": 16
+    },
+    {
+      "partNo": "3038",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope 45\u00b0 2 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303826.jpg",
+      "row": 17
+    },
+    {
+      "partNo": "4854",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope Inverted 45\u00b0 4 x 4 Double with 4 x 2 Recessed",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4603490.jpg",
+      "row": 18
+    },
+    {
+      "partNo": "3587pr0001",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tail Old with Aquazone Aquashark Blue Shark with Red X Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/3587pa0.png",
+      "row": 19
+    },
+    {
+      "partNo": "2419",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 3 x 6 Cut Corners",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/241926.jpg",
+      "row": 20
+    },
+    {
+      "partNo": "3936",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 4 x 4 Wing Left",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/3936.png",
+      "row": 21
+    },
+    {
+      "partNo": "3935",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 4 x 4 Wing Right",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/3935.png",
+      "row": 22
+    },
+    {
+      "partNo": "6058",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Sloped Inverted 11 x 4 x 2 2/3 Cockpit",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/6058.png",
+      "row": 23
+    },
+    {
+      "partNo": "4855",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Sloped Inverted 4 x 4 Triple [2 Connections between Front Studs]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4550004.jpg",
+      "row": 24
+    },
+    {
+      "partNo": "2507pr0004",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Windscreen 10 x 4 x 2 1/3 Canopy with Blue Outlines and Red Square Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/2507pa1.png",
+      "row": 25
+    },
+    {
+      "partNo": "4220",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Arm Grab Jaw Holder, 3 Fingers",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/4220a.png",
+      "row": 26
+    },
+    {
+      "partNo": "3612",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Arm Piece Straight with 2 and 3 Fingers",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/3612.png",
+      "row": 27
+    },
+    {
+      "partNo": "6217",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Arm Piece with Pin, 3 Fingers",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/6047.png",
+      "row": 28
+    },
+    {
+      "partNo": "3004",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Brick 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300423.jpg",
+      "row": 29
+    },
+    {
+      "partNo": "3622",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Brick 1 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362223.jpg",
+      "row": 30
+    },
+    {
+      "partNo": "3008",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Brick 1 x 8",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300823.jpg",
+      "row": 31
+    },
+    {
+      "partNo": "4589",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Cone 1 x 1 [No Top Groove]",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/458923.jpg",
+      "row": 32
+    },
+    {
+      "partNo": "2609a",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Magnet Holder Tile 2 x 2 - Short Arms",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/2609a.png",
+      "row": 33
+    },
+    {
+      "partNo": "3024",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 1",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302423.jpg",
+      "row": 34
+    },
+    {
+      "partNo": "3623",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362323.jpg",
+      "row": 35
+    },
+    {
+      "partNo": "3710",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/371023.jpg",
+      "row": 36
+    },
+    {
+      "partNo": "3020",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 2 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302023.jpg",
+      "row": 37
+    },
+    {
+      "partNo": "4085c",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate Special 1 x 1 with Clip Vertical [Thick U Clip]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/408523.jpg",
+      "row": 38
+    },
+    {
+      "partNo": "4623",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate Special 1 x 2 with Bar Up [Horizontal Arm 6mm]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/4623.png",
+      "row": 39
+    },
+    {
+      "partNo": "3298",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Slope 33\u00b0 3 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/329823.jpg",
+      "row": 40
+    },
+    {
+      "partNo": "3039pr9980",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Slope 45\u00b0 2 x 2 with Grid Screen, Shark, and Controls on Red Panel Print (Aquazone)",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/1/3039pcg.png",
+      "row": 41
+    },
+    {
+      "partNo": "2432",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Tile Special 1 x 2 with Handle",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/243223.jpg",
+      "row": 42
+    },
+    {
+      "partNo": "30385",
+      "colorId": "22",
+      "colorName": "Chrome Silver",
+      "desc": "Rock 1 x 1 Crystal 5 Point",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4119342.jpg",
+      "row": 43
+    },
+    {
+      "partNo": "37",
+      "colorId": "22",
+      "colorName": "Chrome Silver",
+      "desc": "Weapon Dagger / Knife",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/70749.jpg",
+      "row": 44
+    },
+    {
+      "partNo": "57467",
+      "colorId": "22",
+      "colorName": "Chrome Silver",
+      "desc": "Weapon Harpoon [4 Grooves on Shaft]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/383/57467.png",
+      "row": 45
+    },
+    {
+      "partNo": "2547",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Animal Body Part, Shark Body, without Bottom Tube",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/8/2547a.png",
+      "row": 46
+    },
+    {
+      "partNo": "2548",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Animal Body Part, Shark Head",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/8/2548.png",
+      "row": 47
+    },
+    {
+      "partNo": "6064",
+      "colorId": "6",
+      "colorName": "Green",
+      "desc": "Plant, Bush 2 x 2 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/606428.jpg",
+      "row": 48
+    },
+    {
+      "partNo": "3749",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Axle Pin without Friction Ridges Lengthwise",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4184168.jpg",
+      "row": 49
+    },
+    {
+      "partNo": "6065",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plant, Prickly Bush 2 x 2 x 3 Extension with 2 x 2 center",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/6065.png",
+      "row": 50
+    },
+    {
+      "partNo": "3023",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 2",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302321.jpg",
+      "row": 51
+    },
+    {
+      "partNo": "4859",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Wedge Plate 3 x 4 without Stud Notches",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/4859.png",
+      "row": 52
+    },
+    {
+      "partNo": "412",
+      "colorId": "18",
+      "colorName": "Trans-Neon Orange",
+      "desc": "Arm Piece 90\u00b0 Turn [2 / 3 Fingers]",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/57/412.png",
+      "row": 53
+    },
+    {
+      "partNo": "4346",
+      "colorId": "18",
+      "colorName": "Trans-Neon Orange",
+      "desc": "Box 2 x 2 x 2 Door with Slot",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/3005947.jpg",
+      "row": 54
+    },
+    {
+      "partNo": "4345b",
+      "colorId": "18",
+      "colorName": "Trans-Neon Orange",
+      "desc": "Box 2 x 2 x 2 [Hollow Studs]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/3006047.jpg",
+      "row": 55
+    },
+    {
+      "partNo": "6041",
+      "colorId": "18",
+      "colorName": "Trans-Neon Orange",
+      "desc": "Propeller 3 Blade 3 Diameter with Axle Cross",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4165521.jpg",
+      "row": 56
+    },
+    {
+      "partNo": "2507pr0002",
+      "colorId": "18",
+      "colorName": "Trans-Neon Orange",
+      "desc": "Windscreen 10 x 4 x 2 1/3 Canopy with Black Aquasharks Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/57/2507pa2.png",
+      "row": 57
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
