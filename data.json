@@ -36,7 +36,8 @@
       "year": 2024,
       "pieces": 240,
       "minifigs": 3,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "76945",
@@ -1136,5 +1137,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T05:50:47.232Z"
+  "lastSaved": "2026-04-25T05:50:52.808Z"
 }
