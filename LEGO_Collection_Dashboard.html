@@ -189,6 +189,7 @@ tbody td{padding:9px 14px;vertical-align:middle;}
     <div class="stat-card"><div class="big" id="statPieces">24,458</div><div class="lbl">Total Pieces</div></div>
     <a href="LEGO_Minifigures.html" class="stat-card" style="text-decoration:none;cursor:pointer;display:block" onmouseover="this.style.borderColor='#FF6B35'" onmouseout="this.style.borderColor='var(--border)'"><div class="big" id="statFigs" style="color:#FF6B35">140</div><div class="lbl" style="color:#FF6B35">Minifigures ↗</div></a>
     <div class="stat-card"><div class="big" id="statTracked">3</div><div class="lbl">Tracked Sets</div></div>
+    <div class="stat-card"><div class="big" id="statAssembled">0</div><div class="lbl">Assembled</div></div>
     <div class="stat-card"><div class="big" id="foundCount">—</div><div class="lbl">Lots Found</div></div>
     <a href="LEGO_Missing_Pieces.html" class="stat-card" style="text-decoration:none;cursor:pointer;transition:border-color 0.2s" onmouseover="this.style.borderColor='#ff5370'" onmouseout="this.style.borderColor='var(--border)'"><div class="big" id="missingCount" style="color:#ff5370">—</div><div class="lbl" style="color:#ff5370">Lots Missing ↗</div></a>
   </div>
@@ -578,11 +579,14 @@ function updateStats() {
   const pieces = collection.reduce((a,s)=>a+(s.pieces||0),0);
   const figs = collection.reduce((a,s)=>a+(s.minifigs||0),0);
   const tracked = collection.filter(s=>getTracker(s)).length;
+  const assembled = collection.filter(s=>s.assembled).length;
   document.getElementById('statSets').textContent = total;
   document.getElementById('heroCount').textContent = total;
   document.getElementById('statPieces').textContent = pieces.toLocaleString();
   document.getElementById('statFigs').textContent = figs;
   document.getElementById('statTracked').textContent = tracked;
+  const assembledEl = document.getElementById('statAssembled');
+  if(assembledEl) assembledEl.textContent = assembled;
   readTrackerStats();
 }
 
