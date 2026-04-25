@@ -253,7 +253,8 @@
       "year": 2026,
       "pieces": 31,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "71853",
@@ -262,7 +263,8 @@
       "year": 2026,
       "pieces": 107,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "71851",
@@ -271,7 +273,8 @@
       "year": 2026,
       "pieces": 85,
       "minifigs": 3,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "71838",
@@ -280,7 +283,8 @@
       "year": 2025,
       "pieces": 79,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "76335",
@@ -289,7 +293,8 @@
       "year": 2026,
       "pieces": 72,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "11206",
@@ -298,7 +303,8 @@
       "year": 2026,
       "pieces": 61,
       "minifigs": 2,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42197",
@@ -307,7 +313,8 @@
       "year": 2025,
       "pieces": 104,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42198",
@@ -316,7 +323,8 @@
       "year": 2025,
       "pieces": 333,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "60413",
@@ -325,7 +333,8 @@
       "year": 2024,
       "pieces": 478,
       "minifigs": 3,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42179",
@@ -334,7 +343,8 @@
       "year": 2024,
       "pieces": 526,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "6511",
@@ -379,7 +389,8 @@
       "year": 2023,
       "pieces": 244,
       "minifigs": 0,
-      "tracker": null
+      "tracker": null,
+      "assembled": true
     },
     {
       "id": "42134",
@@ -1148,5 +1159,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T05:51:12.162Z"
+  "lastSaved": "2026-04-25T05:51:26.790Z"
 }
