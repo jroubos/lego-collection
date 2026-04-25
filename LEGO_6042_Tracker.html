@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 6042 — Dungeon Hunters</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "6042",
+  "setName": "Dungeon Hunters",
+  "theme": "LEGO",
+  "year": 1990,
+  "storageKey": "6042tracker",
+  "parts": [
+    {
+      "partNo": "4493c01pr0002",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Animal, Horse, Movable Head, Black Eyes Circled with White, Brown Bridle Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/4493c01.png",
+      "row": 0
+    },
+    {
+      "partNo": "3957a",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Antenna 1 x 4 with Rounded Top",
+      "needed": 8,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/3957a.png",
+      "row": 1
+    },
+    {
+      "partNo": "4873",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Bar 1 x 6 [Open Studs]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/4873.png",
+      "row": 2
+    },
+    {
+      "partNo": "3004",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300426.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "3062b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick Round 1 x 1 Open Stud",
+      "needed": 8,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/306226.jpg",
+      "row": 4
+    },
+    {
+      "partNo": "2488",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Equipment Whip [aka Plant Vine]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/248826.jpg",
+      "row": 5
+    },
+    {
+      "partNo": "3024",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 1",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302426.jpg",
+      "row": 6
+    },
+    {
+      "partNo": "3023",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 2",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302326.jpg",
+      "row": 7
+    },
+    {
+      "partNo": "3623",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362326.jpg",
+      "row": 8
+    },
+    {
+      "partNo": "3666",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 6",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/366626.jpg",
+      "row": 9
+    },
+    {
+      "partNo": "3022",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302226.jpg",
+      "row": 10
+    },
+    {
+      "partNo": "2420",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2 Corner",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/242026.jpg",
+      "row": 11
+    },
+    {
+      "partNo": "3021",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302126.jpg",
+      "row": 12
+    },
+    {
+      "partNo": "3020",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302026.jpg",
+      "row": 13
+    },
+    {
+      "partNo": "3035",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 4 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303526.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "4085c",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 1 x 1 with Clip Vertical [Thick U Clip]",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/408526.jpg",
+      "row": 15
+    },
+    {
+      "partNo": "4623",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 1 x 2 with Bar Up [Horizontal Arm 6mm]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4597267.jpg",
+      "row": 16
+    },
+    {
+      "partNo": "4488",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 2 x 2 with Wheel Holder",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/448826.jpg",
+      "row": 17
+    },
+    {
+      "partNo": "2341",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Slope Inverted 45\u00b0 3 x 1 Double with 2 Completely Open Studs",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/234126.jpg",
+      "row": 18
+    },
+    {
+      "partNo": "251",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Turntable 2 x 2 Plate with Hinge, Base [3 Fingers]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/4508.png",
+      "row": 19
+    },
+    {
+      "partNo": "3005",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Brick 1 x 1",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300523.jpg",
+      "row": 20
+    },
+    {
+      "partNo": "3010",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Brick 1 x 4",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/301023.jpg",
+      "row": 21
+    },
+    {
+      "partNo": "3659",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Brick Arch 1 x 4",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4160810.jpg",
+      "row": 22
+    },
+    {
+      "partNo": "3024",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 1",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302423.jpg",
+      "row": 23
+    },
+    {
+      "partNo": "3023",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 2",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302323.jpg",
+      "row": 24
+    },
+    {
+      "partNo": "3710",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate 1 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/371023.jpg",
+      "row": 25
+    },
+    {
+      "partNo": "4085c",
+      "colorId": "7",
+      "colorName": "Blue",
+      "desc": "Plate Special 1 x 1 with Clip Vertical [Thick U Clip]",
+      "needed": 6,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/408523.jpg",
+      "row": 26
+    },
+    {
+      "partNo": "4499",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Bow and Arrow [Large]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/449925.jpg",
+      "row": 27
+    },
+    {
+      "partNo": "4497",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Pike / Spear Round End",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/6/4497.png",
+      "row": 28
+    },
+    {
+      "partNo": "2470",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Wheel Wagon Small (27mm D.)",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/6/2470.png",
+      "row": 29
+    },
+    {
+      "partNo": "3849",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Lance",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/384927.jpg",
+      "row": 30
+    },
+    {
+      "partNo": "3847a",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Sword / Shortsword [Shiny Solid Smooth ABS]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/photos/8/3847a-8-ca756cfb-2823-489f-ab56-76c5b39917e9.jpg",
+      "row": 31
+    },
+    {
+      "partNo": "3846pr0038",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Shield Triangular with Lion Standing Yellow, and Blue Background Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/3846p4h.png",
+      "row": 32
+    },
+    {
+      "partNo": "3679",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Turntable 2 x 2 Plate - Top",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/3679.png",
+      "row": 33
+    },
+    {
+      "partNo": "4587",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Animal / Creature Accessory, Horse Hitching, with 1 x 2 Studs, Hinge [2 Fingers]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/4587.png",
+      "row": 34
+    },
+    {
+      "partNo": "4491a",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Animal / Creature Accessory, Saddle [One Clip]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/4491a.png",
+      "row": 35
+    },
+    {
+      "partNo": "4732",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Bracket 8 x 2 x 1 1/3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/4732.png",
+      "row": 36
+    },
+    {
+      "partNo": "3004",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Brick 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300421.jpg",
+      "row": 37
+    },
+    {
+      "partNo": "87694",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Headwear Accessory Plume / Feather Large with Pin",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/87694.png",
+      "row": 38
+    },
+    {
+      "partNo": "3020",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302021.jpg",
+      "row": 39
+    },
+    {
+      "partNo": "4493c01pr0011",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Animal, Horse, Movable Head, Black Eyes, White Pupils, Brown Bridle Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4121830.jpg",
+      "row": 40
+    },
+    {
+      "partNo": "3004",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Brick 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/300401.jpg",
+      "row": 41
+    },
+    {
+      "partNo": "4495a",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Flag 4 x 1 Wavy [First Wave Left]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/15/4495a.png",
+      "row": 42
+    },
+    {
+      "partNo": "3023",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Plate 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302301.jpg",
+      "row": 43
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
