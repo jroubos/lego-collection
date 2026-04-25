@@ -155,7 +155,7 @@
       "year": 2023,
       "pieces": 688,
       "minifigs": 0,
-      "tracker": null,
+      "tracker": "LEGO_21340_Tracker.html",
       "assembled": true
     },
     {
@@ -1162,5 +1162,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T06:10:46.577Z"
+  "lastSaved": "2026-04-25T06:10:58.275Z"
 }
