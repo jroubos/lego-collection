@@ -334,7 +334,7 @@
       "year": 2024,
       "pieces": 478,
       "minifigs": 3,
-      "tracker": null,
+      "tracker": "LEGO_60413_Tracker.html",
       "assembled": true
     },
     {
@@ -1162,5 +1162,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-25T06:09:51.925Z"
+  "lastSaved": "2026-04-25T06:10:19.066Z"
 }
