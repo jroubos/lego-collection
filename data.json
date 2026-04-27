@@ -916,6 +916,15 @@
       "pieces": 632,
       "minifigs": 0,
       "tracker": null
+    },
+    {
+      "id": "21266",
+      "name": "The Nether Lava Battle",
+      "theme": "Minecraft",
+      "year": 2026,
+      "pieces": 99,
+      "minifigs": 2,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1243,5 +1252,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-27T18:09:50.661Z"
+  "lastSaved": "2026-04-27T18:10:29.827Z"
 }
