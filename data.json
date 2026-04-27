@@ -907,6 +907,15 @@
       "pieces": 0,
       "minifigs": 0,
       "tracker": null
+    },
+    {
+      "id": "42221",
+      "name": "NASA Artemis Space Launch System Rocket",
+      "theme": "Technic",
+      "year": 2026,
+      "pieces": 632,
+      "minifigs": 0,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1234,5 +1243,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-27T18:09:07.187Z"
+  "lastSaved": "2026-04-27T18:09:50.661Z"
 }
