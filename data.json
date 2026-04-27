@@ -925,6 +925,15 @@
       "pieces": 99,
       "minifigs": 2,
       "tracker": null
+    },
+    {
+      "id": "60400",
+      "name": "Go-Karts and Race Drivers",
+      "theme": "City",
+      "year": 2026,
+      "pieces": 99,
+      "minifigs": 2,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1252,5 +1261,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-04-27T18:10:29.827Z"
+  "lastSaved": "2026-04-27T18:10:58.297Z"
 }
