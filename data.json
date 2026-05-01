@@ -979,6 +979,15 @@
       "pieces": 357,
       "minifigs": 2,
       "tracker": null
+    },
+    {
+      "id": "30726",
+      "name": "Batman: Bruce Wayne and the Batsuit",
+      "theme": "Batman",
+      "year": 2026,
+      "pieces": 35,
+      "minifigs": 2,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1306,5 +1315,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-05-01T05:53:17.913Z"
+  "lastSaved": "2026-05-01T05:55:06.024Z"
 }
