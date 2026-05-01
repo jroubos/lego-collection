@@ -988,6 +988,15 @@
       "pieces": 35,
       "minifigs": 2,
       "tracker": null
+    },
+    {
+      "id": "30725",
+      "name": "Spider-Man vs. Anti-Venom Heist",
+      "theme": "Marvel",
+      "year": 2026,
+      "pieces": 31,
+      "minifigs": 1,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1315,5 +1324,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-05-01T05:55:06.024Z"
+  "lastSaved": "2026-05-01T05:56:15.568Z"
 }
