@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 1971 — Black Knight's Battering Ram</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "1971",
+  "setName": "Black Knight's Battering Ram",
+  "theme": "LEGO",
+  "year": 1993,
+  "storageKey": "1971tracker",
+  "parts": [
+    {
+      "partNo": "4275b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Plate 1 x 2 with 3 Fingers [Hollow Studs]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/427526.jpg",
+      "row": 0
+    },
+    {
+      "partNo": "4531",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Hinge Tile 1 x 2 1/2 with 2 Fingers on Top",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/4531.png",
+      "row": 1
+    },
+    {
+      "partNo": "3024",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 1",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302426.jpg",
+      "row": 2
+    },
+    {
+      "partNo": "3623",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362326.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "3022",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302226.jpg",
+      "row": 4
+    },
+    {
+      "partNo": "3034",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303426.jpg",
+      "row": 5
+    },
+    {
+      "partNo": "6019",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 1 x 1 with Clip Horizontal [Thick U Clip]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/601926.jpg",
+      "row": 6
+    },
+    {
+      "partNo": "4085c",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 1 x 1 with Clip Vertical [Thick U Clip]",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/408526.jpg",
+      "row": 7
+    },
+    {
+      "partNo": "3839b",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 1 x 2 with Handles [Flat Ends / Low Attachment]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/383926.jpg",
+      "row": 8
+    },
+    {
+      "partNo": "4600",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate Special 2 x 2 with Wheel Holders",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/460026.jpg",
+      "row": 9
+    },
+    {
+      "partNo": "2419",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 3 x 6 Cut Corners",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/241926.jpg",
+      "row": 10
+    },
+    {
+      "partNo": "4497",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Weapon Pike / Spear Round End",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/6/4497.png",
+      "row": 11
+    },
+    {
+      "partNo": "2470",
+      "colorId": "8",
+      "colorName": "Brown",
+      "desc": "Wheel Wagon Small (27mm D.)",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/6/2470.png",
+      "row": 12
+    },
+    {
+      "partNo": "3849",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Lance",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/384927.jpg",
+      "row": 13
+    },
+    {
+      "partNo": "3847",
+      "colorId": "10",
+      "colorName": "Dark Gray",
+      "desc": "Weapon Sword / Shortsword",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/384727.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "2586pr0012",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Shield Ovoid with Blue Dragon Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/2586p4c.png",
+      "row": 15
+    },
+    {
+      "partNo": "4495a",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Flag 4 x 1 Wavy [First Wave Left]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/4495a.png",
+      "row": 16
+    },
+    {
+      "partNo": "3023",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302321.jpg",
+      "row": 17
+    },
+    {
+      "partNo": "3460",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/346021.jpg",
+      "row": 18
+    },
+    {
+      "partNo": "3021",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302121.jpg",
+      "row": 19
+    },
+    {
+      "partNo": "3794a",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate Special 1 x 2 with 1 Stud without Groove (Jumper)",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/3794a.png",
+      "row": 20
+    },
+    {
+      "partNo": "3040b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Slope 45\u00b0 2 x 1 with Bottom Pin",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4121934.jpg",
+      "row": 21
+    },
+    {
+      "partNo": "3665",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Slope Inverted 45\u00b0 2 x 1",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/366521.jpg",
+      "row": 22
+    },
+    {
+      "partNo": "4495a",
+      "colorId": "3",
+      "colorName": "Yellow",
+      "desc": "Flag 4 x 1 Wavy [First Wave Left]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/14/4495a.png",
+      "row": 23
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
