@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO 8808 — F1 Racer</title>
+</head>
+<body>
+<script>
+const SET_DATA = {
+  "setId": "8808",
+  "setName": "F1 Racer",
+  "theme": "Technic",
+  "year": 1994,
+  "storageKey": "8808tracker",
+  "parts": [
+    {
+      "partNo": "4070",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Brick Special 1 x 1 with Headlight",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/407026.jpg",
+      "row": 0
+    },
+    {
+      "partNo": "3710",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 4",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/371026.jpg",
+      "row": 1
+    },
+    {
+      "partNo": "3460",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 1 x 8",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/346026.jpg",
+      "row": 2
+    },
+    {
+      "partNo": "3022",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302226.jpg",
+      "row": 3
+    },
+    {
+      "partNo": "2420",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 2 Corner",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/242026.jpg",
+      "row": 4
+    },
+    {
+      "partNo": "3034",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Plate 2 x 8",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/303426.jpg",
+      "row": 5
+    },
+    {
+      "partNo": "3737",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle 10",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/373726.jpg",
+      "row": 6
+    },
+    {
+      "partNo": "3704",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle 2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/3704.png",
+      "row": 7
+    },
+    {
+      "partNo": "4519",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle 3",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/451926.jpg",
+      "row": 8
+    },
+    {
+      "partNo": "3705",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle 4",
+      "needed": 3,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/370526.jpg",
+      "row": 9
+    },
+    {
+      "partNo": "3706",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Axle 6",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/370626.jpg",
+      "row": 10
+    },
+    {
+      "partNo": "2825",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Beam 1 x 4 Thin with Stud Connector",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/6331570.jpg",
+      "row": 11
+    },
+    {
+      "partNo": "6541",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Brick 1 x 1 with Pin Hole",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/654126.jpg",
+      "row": 12
+    },
+    {
+      "partNo": "3701",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Brick 1 x 4 [3 Pin Holes]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/370126.jpg",
+      "row": 13
+    },
+    {
+      "partNo": "2780",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Pin with Friction Ridges Lengthwise and Center Slots",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4121715.jpg",
+      "row": 14
+    },
+    {
+      "partNo": "4262",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Technic Plate 1 x 6 with Toothed Ends",
+      "needed": 5,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/0/4262.png",
+      "row": 15
+    },
+    {
+      "partNo": "3483",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Tyre Offset Tread 24 x 8",
+      "needed": 8,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/348326.jpg",
+      "row": 16
+    },
+    {
+      "partNo": "2450",
+      "colorId": "11",
+      "colorName": "Black",
+      "desc": "Wedge Plate 3 x 3 Cut Corner",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/245026.jpg",
+      "row": 17
+    },
+    {
+      "partNo": "3749",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Axle Pin without Friction Ridges Lengthwise",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4184168.jpg",
+      "row": 18
+    },
+    {
+      "partNo": "3713",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Bush",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4125313.jpg",
+      "row": 19
+    },
+    {
+      "partNo": "4265b",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Bush 1/2 Toothed Type II [X Opening]",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/6577.png",
+      "row": 20
+    },
+    {
+      "partNo": "4265b",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Bush 1/2 Toothed Type II [X Opening]",
+      "needed": 4,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/6577.png",
+      "row": 21
+    },
+    {
+      "partNo": "3647",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Gear 8 Tooth",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/364702.jpg",
+      "row": 22
+    },
+    {
+      "partNo": "3743",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Gear Rack 1 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/374302.jpg",
+      "row": 23
+    },
+    {
+      "partNo": "4274",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Pin 1/2",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/427402.jpg",
+      "row": 24
+    },
+    {
+      "partNo": "4274",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Pin 1/2",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/427402.jpg",
+      "row": 25
+    },
+    {
+      "partNo": "4261",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Steering Arm",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/7/4261.png",
+      "row": 26
+    },
+    {
+      "partNo": "2819",
+      "colorId": "9",
+      "colorName": "Light Gray",
+      "desc": "Technic Steering Wheel Small (3 Studs Diameter)",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4113032.jpg",
+      "row": 27
+    },
+    {
+      "partNo": "4864a",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Panel 1 x 2 x 2 [Solid Studs]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/4864a.png",
+      "row": 28
+    },
+    {
+      "partNo": "3623",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/362321.jpg",
+      "row": 29
+    },
+    {
+      "partNo": "3710",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 4",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/371021.jpg",
+      "row": 30
+    },
+    {
+      "partNo": "3666",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 1 x 6",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/366621.jpg",
+      "row": 31
+    },
+    {
+      "partNo": "3022",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 2",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302221.jpg",
+      "row": 32
+    },
+    {
+      "partNo": "2420",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 2 Corner",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/242021.jpg",
+      "row": 33
+    },
+    {
+      "partNo": "3021",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Plate 2 x 3",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/302121.jpg",
+      "row": 34
+    },
+    {
+      "partNo": "3298pr0046",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Slope 33\u00b0 3 x 2 with Black '28' and Black/Yellow Stripes Print",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/photos/4/3298pb021-4-ad794d68-02ca-4895-816b-cc7f1cc202ed.jpg",
+      "row": 35
+    },
+    {
+      "partNo": "2730",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Brick 1 x 10 [9 Pin Holes]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/273021.jpg",
+      "row": 36
+    },
+    {
+      "partNo": "3701",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Brick 1 x 4 [3 Pin Holes]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/370121.jpg",
+      "row": 37
+    },
+    {
+      "partNo": "3894",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Brick 1 x 6 [5 Pin Holes]",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/389421.jpg",
+      "row": 38
+    },
+    {
+      "partNo": "4262",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Technic Plate 1 x 6 with Toothed Ends",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/ldraw/4/4262.png",
+      "row": 39
+    },
+    {
+      "partNo": "3068b",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Tile 2 x 2 with Groove",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/306821.jpg",
+      "row": 40
+    },
+    {
+      "partNo": "2450",
+      "colorId": "5",
+      "colorName": "Red",
+      "desc": "Wedge Plate 3 x 3 Cut Corner",
+      "needed": 2,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/245021.jpg",
+      "row": 41
+    },
+    {
+      "partNo": "3482",
+      "colorId": "1",
+      "colorName": "White",
+      "desc": "Wheel with Split Axle hole",
+      "needed": 8,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/elements/4194244.jpg",
+      "row": 42
+    },
+    {
+      "partNo": "168105",
+      "colorId": "0",
+      "colorName": "[No Color/Any Color]",
+      "desc": "Sticker Sheet for Set 8808-1",
+      "needed": 1,
+      "isMinifig": false,
+      "imgUrl": "https://cdn.rebrickable.com/media/parts/photos/9999/168105-9999-fc203089-5b98-45f9-8640-1ab1dfbd0c87.jpg",
+      "row": 43
+    }
+  ]
+};
+</script>
+<script src="tracker-template.js"></script>
+</body>
+</html>
