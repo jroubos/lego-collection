@@ -1015,6 +1015,15 @@
       "pieces": 134,
       "minifigs": 2,
       "tracker": null
+    },
+    {
+      "id": "75436",
+      "name": "The Mandalorian & Grogu's Speeder Bike",
+      "theme": "Star Wars",
+      "year": 2026,
+      "pieces": 58,
+      "minifigs": 2,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1342,5 +1351,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-05-08T05:01:29.861Z"
+  "lastSaved": "2026-05-08T05:03:51.295Z"
 }
