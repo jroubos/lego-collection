@@ -1051,6 +1051,15 @@
       "pieces": 81,
       "minifigs": 4,
       "tracker": null
+    },
+    {
+      "id": "6755",
+      "name": "Sheriff's Lock-Up",
+      "theme": "Wild West",
+      "year": 1996,
+      "pieces": 158,
+      "minifigs": 4,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1378,5 +1387,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-05-08T06:03:16.459Z"
+  "lastSaved": "2026-05-08T06:05:24.825Z"
 }
