@@ -1069,6 +1069,15 @@
       "pieces": 47,
       "minifigs": 2,
       "tracker": null
+    },
+    {
+      "id": "6791",
+      "name": "Bandit's Wheelgun",
+      "theme": "Wild West",
+      "year": 1997,
+      "pieces": 21,
+      "minifigs": 1,
+      "tracker": null
     }
   ],
   "trackers": {
@@ -1396,5 +1405,5 @@
       "150": "4"
     }
   },
-  "lastSaved": "2026-05-08T06:06:58.075Z"
+  "lastSaved": "2026-05-10T00:50:44.298Z"
 }
